@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.handmark.pulltorefresh.library.PullToRefreshScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pl_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eee"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_money_count"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/x20"
+            android:textStyle="bold"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:paddingBottom="@dimen/x6"
+            android:paddingTop="@dimen/x6">
+
+            <TextView
+                android:id="@+id/tv_supply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bg_round_supply"
+                android:gravity="center"
+                android:text="申请提现"
+                android:textColor="@color/white"
+                android:textSize="@dimen/x10"/>
+        </RelativeLayout>
+
+        <com.youyou.xiaofeibao.view.AutoHeightListView
+            android:id="@+id/lv_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+</com.handmark.pulltorefresh.library.PullToRefreshScrollView>

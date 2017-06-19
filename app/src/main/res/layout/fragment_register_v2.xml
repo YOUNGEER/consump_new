@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="       +86"
+                android:textColor="@color/black"
+                android:textSize="@dimen/x12"
+                android:padding="@dimen/y10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <TextView
+                android:background="@color/line_color"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/x6"
+                android:layout_marginBottom="@dimen/x6"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_width="@dimen/x1"
+                android:layout_height="match_parent"/>
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:hint="请输入您的手机号码"
+                android:textColorHint="@color/hint_phonenum"
+                android:textColor="@color/black"
+                android:textSize="@dimen/x12"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:inputType="number"
+                android:background="@null"
+                android:layout_width="0dp"
+                android:layout_weight="5"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/tv_yan"
+                android:text="获取验证码"
+                android:textSize="@dimen/x10"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/y8"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/bg_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"/>
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/yan"
+                android:textColor="@color/black"
+                android:textSize="@dimen/x12"
+                android:padding="@dimen/y10"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_yan"
+                android:hint="@string/hint_yan"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint_phonenum"
+                android:textSize="@dimen/x12"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:background="@null"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/bg_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"/>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="密    码"
+                android:textColor="@color/black"
+                android:textSize="@dimen/x12"
+                android:padding="@dimen/y10"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_pwd"
+                android:hint="@string/hint_reg_pwd"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint_phonenum"
+                android:textSize="@dimen/x12"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:background="@null"
+                android:inputType="textPassword"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <View
+            android:visibility="gone"
+            android:background="@color/bg_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"/>
+
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/yaoqing"
+                android:textColor="@color/black"
+                android:textSize="@dimen/x12"
+                android:padding="@dimen/y10"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/et_yaoqing"
+                android:hint="@string/hint_yao"
+                android:textColor="@color/black"
+                android:textColorHint="@color/hint_phonenum"
+                android:textSize="@dimen/x12"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:background="@null"
+                android:inputType="number"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <View
+            android:background="@color/bg_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"/>
+
+        <TextView
+            android:id="@+id/tv_voice"
+            android:textColor="#f00"
+            android:textSize="@dimen/x10"
+            android:paddingLeft="@dimen/x12"
+            android:paddingTop="@dimen/x6"
+            android:text="收不到短信验证码？试试语音验证码！"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:id="@+id/tv_register"
+            android:text="@string/register"
+            style="@style/next_btn"
+            android:layout_marginTop="@dimen/x35"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            />
+
+        <LinearLayout
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/y12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/cb_protocal"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="@string/hint_pro_content"
+                android:textSize="@dimen/x10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_marginTop="@dimen/x25"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:background="@color/line_color"
+                android:layout_height="@dimen/x1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="或"
+
+                android:layout_margin="@dimen/x10"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:background="@color/line_color"
+                android:layout_height="@dimen/x1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/x20"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/tv_weixin"
+                android:drawableTop="@mipmap/weixin"
+                android:text="微信登陆"
+                android:textColor="#7D7B7C"
+                android:textSize="@dimen/x10"
+                android:drawablePadding="@dimen/x8"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_zfb"
+                android:drawableTop="@mipmap/zfb"
+                android:text="支付宝登陆"
+                android:textColor="#7D7B7C"
+                android:textSize="@dimen/x10"
+                android:drawablePadding="@dimen/x8"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:visibility="gone"
+                android:drawableTop="@mipmap/qq"
+                android:text="QQ登陆"
+                android:textColor="#7D7B7C"
+                android:textSize="@dimen/x10"
+                android:drawablePadding="@dimen/x8"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#eee">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/x12">
+
+            <ImageView
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/x30"
+                android:src="@drawable/lo"/>
+
+            <TextView
+                android:id="@+id/tv_shopname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="西安的点"
+                android:textColor="#666"
+                android:textSize="@dimen/x13"/>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:padding="@dimen/x8"
+            android:text="-19"
+            android:textColor="@color/black"
+            android:textSize="@dimen/x16"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="交易完成"
+            android:textColor="#aaa"
+            android:textSize="@dimen/x12"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/x12"
+            android:paddingRight="@dimen/x12">
+
+            <TextView
+                android:id="@+id/tv_dui"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/x8"
+                android:paddingTop="@dimen/x8"
+                android:text="对方账号"
+                android:textColor="#aaa"
+                android:textSize="@dimen/x12"/>
+
+            <TextView
+                android:id="@+id/tv_duifang"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:singleLine="true"
+                android:textColor="#aaa"
+                android:textSize="@dimen/x12"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/x12"
+            android:paddingRight="@dimen/x12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/x8"
+                android:paddingTop="@dimen/x8"
+                android:text="创建时间"
+                android:textColor="#aaa"
+                android:textSize="@dimen/x12"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x5"
+                android:layout_weight="1"
+                android:gravity="center_vertical|right"
+                android:singleLine="true"
+                android:textColor="#aaa"
+                android:textSize="@dimen/x12"/>
+        </LinearLayout>
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/x12"
+            android:text="账单描述"
+            android:textColor="#aaa"
+            android:textSize="@dimen/x12"/>
+
+        <TextView
+            android:id="@+id/tv_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/x6"
+            android:paddingLeft="@dimen/x15"
+            android:paddingRight="@dimen/x15"
+            android:textColor="#222"
+            android:textSize="@dimen/x12"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

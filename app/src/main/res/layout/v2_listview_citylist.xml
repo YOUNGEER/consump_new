@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="#ffffffff"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_province"
+        android:textColor="#5D5D5D"
+        android:textSize="@dimen/x16"
+        android:paddingLeft="@dimen/x12"
+        android:paddingTop="@dimen/x9"
+        android:paddingBottom="@dimen/x9"
+        android:background="@color/background_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_city"
+        android:textColor="#5B5B5B"
+        android:textSize="@dimen/x14"
+        android:paddingLeft="@dimen/x20"
+        android:paddingTop="@dimen/x6"
+        android:paddingBottom="@dimen/x6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.youyou.xiaofeibao"
+          android:versionCode="25"
+          android:versionName="3.0.1">
+
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.PERSISTENT_ACTIVITY"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <!-- 呼入电话权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" /> -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- Push service 运行需要的权限 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <!-- 读取短信 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <!-- Required -->
+    <permission
+        android:name="com.youyou.xiaofeibao.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature"/>
+
+    <!-- Required -->
+    <uses-permission android:name="com.youyou.xiaofeibao.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+
+    <!-- Optional. Required for location feature -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+
+    <application
+        android:name=".ConsumApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/logo_pic"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        tools:replace="icon,label,theme">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/appThome.bg">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".GuideActivity"/>
+
+        <meta-data
+            android:name="com.youyou.xiaofeibao.version2.tool.AppModule"
+            android:value="GlideModule"/>
+
+        <!-- 蒲公英meta必选 -->
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="6e7f20358febac349be22c63cf4a6fdd">
+        </meta-data>
+        <!-- 支付宝 -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden"/>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="OW1uvLO5L2XzHK9slbLxfXPeZUD39q7M"/>
+
+        <!-- 微信pay回调 -->
+        <activity
+            android:name=".wxapi.WXPayEntryActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:scheme="wxbbcf236b07638282"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+
+                <data android:scheme="wxc32457c6b81423c8"/>
+            </intent-filter>
+        </activity>
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <!--
+            <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        -->
+
+        <activity
+            android:name=".version2.login.LoginOrRegisterActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/appThome.bg"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity
+            android:name=".version2.login.ForgetPwdActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.benefit.BenefitActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.history.HistoryActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.alliance.category.CategoryActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.count.MyCountActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.ShopActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.pay.PayActivity"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustPan|stateHidden|adjustUnspecified"/>
+        <activity android:name=".version2.WebViewDemo"/>
+        <activity
+            android:name=".version2.home.InfoWebView"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.hot.SubscribeActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.benefit.AgentActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.mine.ParterActivity1"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.IntroduceShopActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.BeShopActivity"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity
+            android:name=".version2.mine.favorite.FavoriteActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.mine.countinfo.CountInfoActivity"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity
+            android:name=".version2.mine.setting.SettingActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.order.OrderManagerActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.store.StoreManageActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.count.BenefitInfoActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.pay.PayActivityPre"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustResize"/>
+        <activity
+            android:name=".version2.settings.ChangeTongPwdActivty"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.settings.ConfirmTongPwdActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.settings.GetTongYanActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.benefit.AgentPreActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.mine.orderlist.OrderListActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.mine.orderlist.PingjiaActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.member.MyMemberActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.city.CityActivity"
+            android:theme="@style/AppTheme.action"/>
+        <!-- update Service -->
+        <service
+            android:name=".version2.update.ApkDownloadService"
+            android:exported="true"/>
+
+        <activity
+            android:name=".version2.home.benefit.myshop.MyShopActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.benefit.detail.DetailsActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.postal.PostalActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.store.EditShopInfoActivity"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity
+            android:name=".version2.home.shop.store.EditShopImgActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.bankcrad.BankCardActivity"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity
+            android:name=".version2.home.shop.bankcrad.AddBankActivity"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity
+            android:name=".version2.home.postal.Postal2Activity"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity
+            android:name=".version2.alliance.search.SearchResultActivity"
+            android:theme="@style/appThome.bg"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+
+        <!-- 收银台 -->
+        <activity
+            android:name=".version2.home.shop.CheckstandActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.store.MapViewActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.MapViewShowAddrActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".zxing.ScanbrcodeActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.shop.sy.BenefitActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.postal.PostalHistoryActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.home.benefit.myshop.MyShopMoneyActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.pay.PaySuccessActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.mine.tg.MyTgActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.BindActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.mine.yaoqing.YaoqingActivity"
+            android:theme="@style/AppTheme.action"/>
+        <activity
+            android:name=".version2.pay.pwd.PayActivityPre2"
+            android:theme="@style/AppTheme.action"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+
+        <!-- Required SDK 核心功能 -->
+        <!-- 可配置android:process参数将PushService放在其他进程中 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER"/>
+                <action android:name="cn.jpush.android.intent.REPORT"/>
+                <action android:name="cn.jpush.android.intent.PushService"/>
+                <action android:name="cn.jpush.android.intent.PUSH_TIME"/>
+            </intent-filter>
+        </service>
+
+        <!-- since 1.8.0 option 可选项。用于同一设备中不同应用的JPush服务相互拉起的功能。 -->
+        <!-- 若不启用该功能可删除该组件，将不拉起其他应用也不能被其他应用拉起 -->
+        <service
+            android:name="cn.jpush.android.service.DaemonService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.DaemonService"/>
+
+                <category android:name="com.youyou.xiaofeibao"/>
+            </intent-filter>
+        </service>
+
+        <!-- Required SDK核心功能 -->
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
+
+                <category android:name="com.youyou.xiaofeibao"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Required SDK核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="com.youyou.xiaofeibao"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Required SDK核心功能 -->
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false">
+        </service>
+
+        <!-- Required SDK核心功能 -->
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver"/>
+
+        <!-- User defined. 用户自定义的广播接收器 -->
+        <receiver
+            android:name=".MyPushReceiver"
+            android:enabled="true">
+            <intent-filter>
+
+                <!-- Required 用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION"/>
+                <!-- Required 用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED"/>
+                <!-- Required 用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED"/>
+                <!-- Required 用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED"/>
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION"/>
+
+                <category android:name="com.youyou.xiaofeibao"/>
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default"/>
+        <!-- Required. AppKey copied from Portal -->
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="d405d2a2e20ec28537f2d63a"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.youyou.xiaofeibao.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <activity android:name=".version2.home.benefit.proxy.ProxyActivity"
+                  android:theme="@style/AppTheme.action"/>
+        <activity android:name=".version2.home.benefit.proxy.ProxyBenefitActivity"
+                  android:theme="@style/AppTheme.action"/>
+        <activity android:name=".version2.home.benefit.proxy.ZhaoshangPostalActivity"
+                  android:theme="@style/AppTheme.action"/>
+        <activity android:name=".version2.home.benefit.proxy.ProxyHistory"
+                  android:theme="@style/AppTheme.action"/>
+        <activity android:name=".version2.home.benefit.myshop.SearchShopActivity"
+                  android:theme="@style/appThome.bg"
+                  android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+    </application>
+
+</manifest>

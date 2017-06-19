@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.youyou.xiaofeibao.util.CircularImage
+        android:id="@+id/iv_img"
+        android:src="@mipmap/mine"
+        android:scaleType="centerCrop"
+        android:layout_margin="@dimen/x6"
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/x8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:textColor="#888"
+            android:textSize="@dimen/x12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:textColor="#888"
+            android:layout_marginTop="@dimen/x3"
+            android:textSize="@dimen/x12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

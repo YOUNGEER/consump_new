@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_success"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/y40"
+        android:layout_width="80dp"
+        android:layout_height="80dp"/>
+
+    <TextView
+        android:id="@+id/tv_tishi"
+        android:layout_below="@+id/iv_success"
+        android:text="您的交易已完成"
+        android:textSize="@dimen/x14"
+        android:textColor="#8A8889"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/x10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_done"
+        android:layout_marginTop="@dimen/y40"
+        android:layout_below="@+id/tv_tishi"
+        style="@style/next_btn"
+        android:text="支付完成"/>
+
+</RelativeLayout>

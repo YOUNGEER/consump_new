@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <View
+        android:background="@color/bg_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="       +86"
+            android:textColor="@color/black"
+            android:textSize="@dimen/x12"
+            android:padding="@dimen/y12"
+            android:layout_width="wrap_content"
+            android:gravity="center|left"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:textColor="@color/black"
+            android:hint="@string/hint_phone"
+            android:paddingLeft="@dimen/x4"
+            android:textColorHint="@color/hint_phonenum"
+            android:textSize="@dimen/x12"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:inputType="number"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_weight="5"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_yan"
+            android:text="获取验证码"
+            android:textSize="@dimen/x12"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/bg_discount"
+            android:layout_marginRight="@dimen/y8"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <View
+        android:background="@color/bg_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"/>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="@string/yan"
+            android:textColor="@color/black"
+            android:textSize="@dimen/x12"
+            android:padding="@dimen/y12"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/et_yan"
+            android:hint="@string/hint_yan"
+            android:textColor="@color/black"
+            android:textColorHint="@color/hint_phonenum"
+            android:textSize="@dimen/x12"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:background="@null"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"/>
+
+    </LinearLayout>
+
+    <View
+        android:background="@color/bg_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"/>
+
+
+    <TextView
+        android:id="@+id/tv_forget_pwd"
+        android:text="@string/bind"
+        android:layout_marginTop="@dimen/x50"
+        style="@style/next_btn"/>
+
+</LinearLayout>

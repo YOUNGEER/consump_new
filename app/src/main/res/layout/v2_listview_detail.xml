@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/x12">
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="12-11"
+            android:layout_weight="1"
+            android:textColor="#BDBDBD"
+            android:textSize="@dimen/x12"/>
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="9:20"
+            android:textColor="#BDBDBD"
+            android:textSize="@dimen/x10"/>
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_img"
+        android:layout_width="@dimen/x35"
+        android:layout_height="@dimen/x35"
+        android:layout_marginTop="@dimen/x12"/>
+
+    <LinearLayout
+        android:paddingLeft="@dimen/x12"
+        android:paddingRight="@dimen/x12"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+452"
+            android:layout_marginTop="@dimen/x3"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:textColor="#2E3A3D"
+            android:textSize="@dimen/x15"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="祝福包"
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:textColor="#A8A8A8"
+            android:textSize="@dimen/x13"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/x12"
+        android:drawableRight="@mipmap/arrow"
+        android:gravity="center_vertical"/>
+
+</LinearLayout>

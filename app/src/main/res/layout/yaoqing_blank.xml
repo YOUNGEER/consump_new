@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_blank"
+        android:layout_width="@dimen/x45"
+        android:layout_height="@dimen/x70"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/x8"
+        android:layout_marginTop="@dimen/x30"
+        android:src="@drawable/yaoqing_blank"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_blank"
+        android:gravity="center_horizontal"
+        android:text="还不赶紧去邀请好友"
+        android:textColor="#CECECE"/>
+
+</RelativeLayout>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eee"
+        android:orientation="vertical">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x12"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/line_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="@dimen/x12"
+                android:text="持卡人"
+                android:textColor="#525252"
+                android:textSize="@dimen/x12"/>
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:textColor="#4F4F4F"
+                android:textColorHint="#C8C7CC"
+                android:textSize="@dimen/x12"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/line_color"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x12"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/line_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="@dimen/x12"
+                android:text="卡号"
+                android:textColor="#525252"
+                android:textSize="@dimen/x12"/>
+
+            <EditText
+                android:id="@+id/et_cardnum"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@null"
+                android:hint="请输入银行卡号"
+                android:inputType="number"
+                android:textColor="#4F4F4F"
+                android:textColorHint="#C8C7CC"
+                android:textSize="@dimen/x12"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/line_color"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x12"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/line_color"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="@dimen/x12"
+                android:text="银行名称"
+                android:textColor="#525252"
+                android:textSize="@dimen/x12"/>
+
+            <TextView
+                android:id="@+id/tv_bank"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请选择储蓄卡所在银行"
+                android:textColor="#4F4F4F"
+                android:textColorHint="#C8C7CC"
+                android:textSize="@dimen/x12"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/line_color"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x12"/>
+
+        <View
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x1"
+            android:background="@color/line_color"/>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:padding="@dimen/x12"
+                android:text="所在地"
+                android:textColor="#525252"
+                android:textSize="@dimen/x12"/>
+
+            <EditText
+                android:id="@+id/et_addr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@null"
+                android:hint="请选择开户行所在地区"
+                android:textColor="#4F4F4F"
+                android:textColorHint="#C8C7CC"
+                android:textSize="@dimen/x12"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_sure"
+            style="@style/next_btn"
+            android:layout_marginTop="@dimen/x20"
+            android:text="确定绑定"
+            />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:gravity="center"
+        android:text="@string/change_tong_pwd"
+        android:layout_marginTop="@dimen/x40"
+        android:textColor="#535353"
+        android:layout_marginBottom="@dimen/x20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.youyou.xiaofeibao.version2.pay.pwd.GridPasswordView
+        android:id="@+id/pv_set"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x45"
+        android:layout_marginLeft="@dimen/x25"
+        android:layout_marginRight="@dimen/x25"
+        android:layout_marginBottom="@dimen/x12"
+        app:gpvGridColor="#fafbfd"
+        app:gpvLineColor="#E6E6E6"
+        app:gpvLineWidth="1dp"
+        app:gpvPasswordLength="6"
+        app:gpvPasswordType="numberPassword"
+        app:gpvTextColor="#000"
+        app:gpvTextSize="10sp"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_next"
+        android:text="下一步"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="@dimen/x15"
+        android:background="@drawable/bg_check_sure_pay2"
+        android:layout_marginLeft="@dimen/x15"
+        android:layout_marginRight="@dimen/x15"
+        android:layout_marginTop="@dimen/x20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

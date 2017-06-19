@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@drawable/bg_postal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:textColor="#414141"
+        android:textStyle="normal"
+        android:padding="@dimen/x15"
+        android:textSize="@dimen/x16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_below="@+id/tv_name"
+        android:textColor="#8E8E8E"
+        android:textStyle="normal"
+        android:textSize="@dimen/x15"
+        android:paddingLeft="@dimen/x15"
+        android:paddingBottom="@dimen/x15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:src="@mipmap/bg_bank_delete"
+        android:layout_width="@dimen/x60"
+        android:layout_height="@dimen/x40"/>
+
+</RelativeLayout>

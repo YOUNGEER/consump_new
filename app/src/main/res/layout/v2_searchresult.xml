@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:zhy="http://schemas.android.com/apk/res-auto"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            style="@style/title_height"
+            android:paddingLeft="@dimen/x12"
+            android:paddingRight="@dimen/x12"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textColorHint="#DEDEDE"
+            android:textSize="@dimen/x10"
+            android:drawableLeft="@drawable/base_title_back"/>
+
+        <EditText
+            android:id="@+id/tv_search"
+            android:background="@drawable/search_bg"
+            android:hint="搜索商家"
+            android:textSize="@dimen/x13"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/x8"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:paddingTop="@dimen/x3"
+            android:paddingBottom="@dimen/x3"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x4"
+            android:paddingRight="@dimen/x12"
+            android:text="搜索"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:background="#EEEEEE"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="历史搜索"
+            android:textColor="#979392"
+            android:textSize="@dimen/x12"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/x12"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:drawableLeft="@mipmap/del"
+            android:padding="@dimen/x12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:id="@+id/id_flowlayout"
+        zhy:max_select="1"
+        zhy:auto_select_effect="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+    </com.zhy.view.flowlayout.TagFlowLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/lv_result"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

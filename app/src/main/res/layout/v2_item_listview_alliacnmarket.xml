@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="@dimen/x80"
+        android:layout_height="@dimen/x80"
+        android:layout_margin="@dimen/x12"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/login_header"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:layout_marginTop="@dimen/x12"
+            android:textColor="@color/shopname"
+            android:textSize="@dimen/textsise_small_"/>
+
+
+        <TextView
+            android:id="@+id/addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textColor="@color/shopaddr"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x10"
+            android:layout_weight="1"
+            android:drawableLeft="@mipmap/good"
+            android:drawablePadding="@dimen/x6"
+            android:gravity="center_vertical"
+            android:text="124"
+            android:textColor="@color/shopaddr"/>
+
+    </LinearLayout>
+
+</LinearLayout>

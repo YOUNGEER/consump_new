@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_num"
+            android:text="订单号：10250"
+            android:layout_margin="@dimen/x12"
+            android:textColor="#5A5A5A"
+            android:textSize="@dimen/x12"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_createdate"
+            android:textColor="#5A5A5A"
+            android:textSize="@dimen/x12"
+            android:layout_margin="@dimen/x12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <View
+        android:background="@color/line_color"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/x12"
+        android:layout_marginRight="@dimen/x12"
+        android:layout_height="1px"/>
+
+    <LinearLayout
+        android:layout_margin="@dimen/x12"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="订单金额："
+            android:textColor="#5A5A5A"
+            android:textSize="@dimen/x12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:text="2543"
+            android:textColor="#FF6243"
+            android:textSize="@dimen/x12"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:text="元"
+            android:textColor="#5A5A5A"
+            android:textSize="@dimen/x12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</LinearLayout>

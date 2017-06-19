@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/shade_color"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x160"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_wx"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_marginBottom="@dimen/x12"
+                android:layout_marginTop="@dimen/x20"
+                android:layout_weight="1"
+                android:src="@drawable/yaoqing_wx"/>
+
+            <ImageView
+                android:id="@+id/iv_pyq"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_marginBottom="@dimen/x12"
+                android:layout_marginTop="@dimen/x20"
+                android:layout_weight="1"
+                android:src="@drawable/yaoqing_pyq"/>
+
+            <ImageView
+                android:id="@+id/iv_qr"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/x50"
+                android:layout_marginBottom="@dimen/x12"
+                android:layout_marginTop="@dimen/x20"
+                android:layout_weight="1"
+                android:src="@drawable/yaoqing_mdm"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/x15">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="邀请微信好友"
+                android:textColor="#323031"
+                android:textSize="@dimen/x11"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="分享到朋友圈"
+                android:textColor="#323031"
+                android:textSize="@dimen/x11"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="面对面邀请"
+                android:textColor="#323031"
+                android:textSize="@dimen/x11"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/shade_color"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_count"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/x8"
+                        android:gravity="center_horizontal"
+                        android:text="累计收益"
+                        android:textColor="#5B5B5B"
+                        android:textSize="@dimen/x12"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_money"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_count"
+                        android:gravity="center_horizontal"
+                        android:textColor="#A0A0A0"
+                        android:textSize="@dimen/x11"
+                        android:textStyle="bold"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/dash"/>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tv_success"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x8"
+                    android:gravity="center_horizontal"
+                    android:text="成功邀请"
+                    android:textColor="#5B5B5B"
+                    android:textSize="@dimen/x12"/>
+
+                <TextView
+                    android:id="@+id/tv_num"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_success"
+                    android:textColor="#A0A0A0"
+                    android:textSize="@dimen/x11"
+                    android:textStyle="bold"/>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/background_color"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x15"
+            android:gravity="center_horizontal"
+            android:text="--- 收益明细 ---"
+            android:textColor="#656565"
+            android:textSize="@dimen/x12"/>
+
+
+        <com.youyou.xiaofeibao.version2.mine.yaoqing.AutoListView
+            android:id="@+id/rv_yao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_rule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/x10"
+            android:layout_marginTop="@dimen/x40"
+            android:gravity="center_horizontal"
+            android:text="查看活动规则 》》"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:indicator="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@mipmap/login_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100">
+
+        <com.youyou.xiaofeibao.util.CircularImage
+            android:src="@drawable/logo_pic"
+            android:scaleType="fitXY"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_width="@dimen/y40"
+            android:layout_height="@dimen/y40"/>
+
+        <com.youyou.xiaofeibao.version2.login.ViewPagerIndicator
+            android:id="@+id/indicator"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y20"
+            android:orientation="horizontal"
+            indicator:item_count="2"/>
+
+    </RelativeLayout>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

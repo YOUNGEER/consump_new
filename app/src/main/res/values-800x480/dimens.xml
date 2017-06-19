@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!--<dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="bottom_tab_padding_up">2.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
+    <dimen name="et_marginEnd_collectionBusiness">20dp</dimen>
+    <dimen name="ll_padding_collectionBusiness">10dp</dimen>
+    <dimen name="view_marBot_collectionBusiness">20dp</dimen>
+    <dimen name="view_marBot_collectionPicture">15dp</dimen>
+    <dimen name="ll_padding_collectionPicture">10dp</dimen>
+    <dimen name="text_padding">10dp</dimen>
+    <dimen name="margin_comment_fragmentComment">15dp</dimen>
+    <dimen name="width_gridItem_main_">200dp</dimen>
+    <dimen name="height_gridItem_main_">100dp</dimen>
+    <dimen name="hotActivity_height">150dp</dimen>
+    <dimen name="gridView_main_margin">10dp</dimen>
+    <dimen name="gridView_horizontal">10dp</dimen>
+    <dimen name="gridView_vertical">10dp</dimen>
+    <dimen name="page_index_height">3dp</dimen>
+    <dimen name="page_index_left">20dp</dimen>
+    <dimen name="text_padding_left">5dp</dimen>
+    <dimen name="margintStart_goodsPay">10dp</dimen>
+    <dimen name="paddingTop_goodsPay">10dp</dimen>
+    <dimen name="paddingStart">10dp</dimen>
+
+
+    <dimen name="textsize_next_tap">22dp</dimen>
+    <dimen name="nexttap_marginbottom">40dp</dimen>
+    <dimen name="textsize_content">13sp</dimen>
+    <dimen name="margintop_item_name">5dp</dimen>
+    <dimen name="padding_content">5dp</dimen>
+    <dimen name="check_padding">25dp</dimen>
+    <dimen name="check_margintop">15dp</dimen>
+    <dimen name="padding_line_top">3dp</dimen>
+    <dimen name="padding_layout_surround">15dp</dimen>
+    <dimen name="margintop_item_content">10dp</dimen>
+    <dimen name="marginleftorright">11dp</dimen>
+    <dimen name="margin_left_right_nomar">19dp</dimen>
+    <dimen name="padding_surround">8dp</dimen>
+    <dimen name="marTop_businessOrder">10dp</dimen>
+    <dimen name="paddingEnd">15dp</dimen>
+    <dimen name="width_text_goodsFragment">100dp</dimen>
+    <dimen name="margin_start">10dp</dimen>
+    <dimen name="with_item_business">90dp</dimen>
+    <dimen name="height_image_mainGrid">100dp</dimen>
+    <dimen name="height_linear_gdoosDeatil">40dp</dimen>
+    <dimen name="width_image_order">120dp</dimen>
+    <dimen name="height_image_order">100dp</dimen>
+    <dimen name="margin_categoryBusiness">5dp</dimen>
+    <dimen name="paddingStart_title">8dp</dimen>
+    <dimen name="gdoos_head_ll_height">150dp</dimen>-->
+
+
+</resources>

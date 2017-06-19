@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.youyou.xiaofeibao.framework.activity.title.CommonTitleView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    android:paddingStart="@dimen/paddingStart_title"
+    android:paddingEnd="@dimen/paddingStart_title"
+    android:theme="@style/AppTheme.Detail">
+
+    <TextView
+        android:id="@+id/common_title_view_layout_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:maxEms="12"
+        android:textSize="@dimen/title_size"/>
+
+    <LinearLayout
+        android:id="@+id/common_title_view_layout_left_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/common_title_view_layout_left_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/base_title_back"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/common_title_view_layout_right_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"/>
+
+</com.youyou.xiaofeibao.framework.activity.title.CommonTitleView>
+

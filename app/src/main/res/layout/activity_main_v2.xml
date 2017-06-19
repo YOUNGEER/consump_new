@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_01"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/ll_01"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:background="#b4b4b4"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
+
+        <RadioGroup
+
+            android:background="#f9f9f9"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                style="@style/style_rb_main"
+                android:drawableTop="@drawable/v2_bg_tab_home"
+                android:checked="true"
+                android:text="@string/title_home"/>
+
+            <RadioButton
+                android:id="@+id/rb_alliance"
+                android:drawableTop="@drawable/v2_bg_tab_alliance"
+                android:text="@string/title_alliance"
+                style="@style/style_rb_main"/>
+
+            <RadioButton
+                android:id="@+id/rb_mine"
+                android:drawableTop="@drawable/v2_bg_tab_mine"
+                android:text="@string/title_mine"
+                style="@style/style_rb_main"/>
+        </RadioGroup>
+    </LinearLayout>
+
+
+</RelativeLayout>

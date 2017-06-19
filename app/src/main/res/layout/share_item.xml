@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_line"
+        android:padding="@dimen/x12"
+        android:gravity="center"
+        android:text="朋友圈"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@color/line_color"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x1"/>
+
+    <TextView
+        android:id="@+id/tv_friend"
+        android:padding="@dimen/x12"
+        android:gravity="center"
+        android:text="微信好友"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

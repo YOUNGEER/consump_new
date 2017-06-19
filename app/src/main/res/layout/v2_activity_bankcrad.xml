@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="#eee"
+              android:padding="@dimen/x12"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_nodata"
+        android:visibility="gone"
+        android:text="暂无添加银行卡，去添加吧..."
+        android:gravity="center"
+        android:textColor="#5d5d5d"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ListView
+        android:id="@+id/lv_banklist"
+        android:dividerHeight="@dimen/x8"
+        android:divider="@null"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

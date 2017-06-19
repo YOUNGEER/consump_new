@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.youyou.xiaofeibao.view.LoadingView xmlns:android="http://schemas.android.com/apk/res/android"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/loading_view_background"
+                                        android:focusable="true"
+                                        android:focusableInTouchMode="true"
+                                        android:visibility="gone">
+
+    <LinearLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dip">
+
+        <include layout="@layout/whale_spring_loading_view"/>
+
+        <TextView
+            android:id="@+id/loading_text"
+            android:shadowColor="@color/c2"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dip"
+            android:paddingTop="5dip"
+            android:singleLine="true"
+            android:text="@string/base_default_loading"
+            android:textColor="@color/c1"
+            android:textSize="13dp"/>
+    </LinearLayout>
+
+</com.youyou.xiaofeibao.view.LoadingView>

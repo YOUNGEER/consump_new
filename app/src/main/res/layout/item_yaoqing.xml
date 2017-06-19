@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal">
+
+    <TextView
+        android:layout_marginLeft="@dimen/x12"
+        android:id="@+id/tv_phone"
+        android:layout_width="0dp"
+        android:textColor="#5C5C5C"
+        android:textSize="@dimen/x12"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="left"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
+        android:textColor="#B8B8B8"
+        android:textSize="@dimen/x12"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_marginRight="@dimen/x12"
+        android:id="@+id/tv_money"
+        android:layout_width="0dp"
+        android:textColor="#FF6548"
+        android:text="@dimen/x12"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="right"/>
+
+</LinearLayout>
