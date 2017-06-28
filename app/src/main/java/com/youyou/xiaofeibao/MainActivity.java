@@ -1,18 +1,18 @@
 package com.youyou.xiaofeibao;
 
-import android.*;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.youyou.xiaofeibao.framework.activity.BaseActivity;
 import com.youyou.xiaofeibao.framework.preferences.PreferencesConfig;
 import com.youyou.xiaofeibao.version2.Config;
@@ -20,14 +20,8 @@ import com.youyou.xiaofeibao.version2.alliance.AllicanceFragment;
 import com.youyou.xiaofeibao.version2.home.HomeFragment;
 import com.youyou.xiaofeibao.version2.login.LoginOrRegisterActivity;
 import com.youyou.xiaofeibao.version2.mine.MineFragment;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
-import java.util.Set;
-
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -88,7 +82,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void setPagePosition(int page) {
         setChecked(page);
     }
-
 
     protected void setListener() {
 

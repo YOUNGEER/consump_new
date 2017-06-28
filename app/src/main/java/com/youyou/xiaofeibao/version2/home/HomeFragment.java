@@ -16,6 +16,9 @@ import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.youyou.xiaofeibao.ConsumApplication;
 import com.youyou.xiaofeibao.MainActivity;
 import com.youyou.xiaofeibao.R;
@@ -54,9 +57,6 @@ import com.youyou.xiaofeibao.version2.response.recommand.RecommandResponseObject
 import com.youyou.xiaofeibao.version2.update.MyUpdateDialog;
 import com.youyou.xiaofeibao.view.AutoHeightListView;
 import com.youyou.xiaofeibao.zxing.ScanbrcodeActivity;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.List;
 
@@ -353,6 +353,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
                     }
                 }
                 break;
+
             case R.id.iv_shop:
             case R.id.line_shop:
                 //商户入口

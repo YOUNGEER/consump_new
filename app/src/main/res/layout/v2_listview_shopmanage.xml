@@ -5,10 +5,6 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tv_num"
@@ -16,20 +12,9 @@
             android:layout_margin="@dimen/x12"
             android:textColor="#5A5A5A"
             android:textSize="@dimen/x12"
-            android:layout_width="0dp"
-            android:layout_weight="1"
             android:singleLine="true"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/tv_createdate"
-            android:textColor="#5A5A5A"
-            android:textSize="@dimen/x12"
-            android:layout_margin="@dimen/x12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
 
 
     <View
@@ -69,5 +54,35 @@
             android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
+    <View
+        android:background="@color/line_color"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/x12"
+        android:layout_marginRight="@dimen/x12"
+        android:layout_height="1px"/>
+
+    <TextView
+        android:id="@+id/tv_createdate"
+        android:textColor="#5A5A5A"
+        android:textSize="@dimen/x12"
+        android:layout_margin="@dimen/x12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:background="@color/line_color"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/x12"
+        android:layout_marginRight="@dimen/x12"
+        android:layout_height="1px"/>
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:textColor="#5A5A5A"
+        android:textSize="@dimen/x12"
+        android:layout_margin="@dimen/x12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

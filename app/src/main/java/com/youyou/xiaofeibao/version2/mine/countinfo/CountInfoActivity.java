@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.EditText;
@@ -321,13 +322,25 @@ public class CountInfoActivity extends BaseTitleActivity implements View.OnClick
             switch (requestCode) {
                 case TAKE_PICTURE_REQUEST_CODE:
                     if (createCropFile()) {
-                        cropImage(Uri.fromFile(mPictureFromCamera),
-                                Uri.fromFile(mPictureFromCrop));
+
+                        Uri camera = FileProvider.getUriForFile(mActivity, "com.youyou.xiaofeibao.fileprovider", mPictureFromCamera);//通过FileProvider创建一个content类型的Uri
+                        Uri crop = FileProvider.getUriForFile(mActivity, "com.youyou.xiaofeibao.fileprovider", mPictureFromCrop);//通过FileProvider创建一个content类型的Uri
+
+
+//                        cropImage(Uri.fromFile(mPictureFromCamera),
+//
+//                                Uri.fromFile(mPictureFromCrop));
+                        cropImage(camera, crop);
+
                     }
                     break;
                 case CHOOSE_PICTURE_FROM_DEVICE:
                     if (createCropFile()) {
-                        cropImage(data.getData(), Uri.fromFile(mPictureFromCrop));
+
+                        Uri crop = FileProvider.getUriForFile(mActivity, "com.youyou.xiaofeibao.fileprovider", mPictureFromCrop);//通过FileProvider创建一个content类型的Uri
+
+//                        cropImage(data.getData(), Uri.fromFile(mPictureFromCrop));
+                        cropImage(data.getData(), crop);
                     }
                     break;
                 case CROP_PICTURE_CODE:
@@ -425,8 +438,13 @@ public class CountInfoActivity extends BaseTitleActivity implements View.OnClick
             if (!mPictureFromCamera.exists()) {
                 mPictureFromCamera.createNewFile();
             }
+
+            Uri camera = FileProvider.getUriForFile(mActivity, "com.youyou.xiaofeibao.fileprovider", mPictureFromCamera);//通过FileProvider创建一个content类型的Uri
+
+//            takePicture.putExtra(MediaStore.EXTRA_OUTPUT,
+//                    Uri.fromFile(mPictureFromCamera));
             takePicture.putExtra(MediaStore.EXTRA_OUTPUT,
-                    Uri.fromFile(mPictureFromCamera));
+                    camera);
         } catch (IOException e) {
             return;
         }

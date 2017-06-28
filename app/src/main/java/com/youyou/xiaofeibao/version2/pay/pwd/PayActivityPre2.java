@@ -382,7 +382,7 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
                 tv_pay_tong.setText(d_total_tong + "");
                 tv_real_pay.setText(d_real_pay+"");
                 tv_sure.setText(d_real_pay + " 确认支付");
-                f4 = MathUtil.formatDouble(d_subNum_tong * percent, 2);
+                f4 = MathUtil.formatDouble2Num(MathUtil.multiplyDouble(d_subNum_tong, percent)) + "";
                 tv_back_tong.setText(f4);
 
 
@@ -406,7 +406,7 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
             tv_pay_tong.setTextColor(Color.WHITE);
             tv_pay_tong.setText(d_pay_tong + "");
             tv_real_pay.setText(d_real_pay+"");
-            f4 = MathUtil.formatDouble(d_real_pay * percent, 2);
+            f4 = MathUtil.formatDouble2Num(MathUtil.multiplyDouble(d_real_pay, percent)) + "";
             tv_back_tong.setText(f4);
             tv_sure.setText(d_real_pay + " 确认支付");
 

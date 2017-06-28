@@ -24,6 +24,7 @@ public class ConsumApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         instance = this;
         GlobalConfig.setAppContext(this);
         JPushInterface.setDebugMode(true);// 设置开启日志,发布时请关闭日志

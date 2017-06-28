@@ -21,7 +21,8 @@ public class OrderManageAdapter extends CustormBaseAdapter<ShopOrderResponsePara
     public void initView(ShopOrderResponseParam bean, ViewHolder holder, int position) {
         holder.setTextViewText(R.id.tv_num, "订单号："+bean.getPay_number())
                 .setTextViewText(R.id.tv_count, bean.getTotal_money() + "")
-                .setTextViewText(R.id.tv_createdate,bean.getCreateDate());
+                .setTextViewText(R.id.tv_createdate, bean.getCreateDate())
+                .setTextViewText(R.id.tv_des, bean.getOrder_description());
 
     }
 }

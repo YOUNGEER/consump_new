@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.ImageView;
@@ -248,6 +249,7 @@ public class EditShopImgActivity extends BaseTitleActivity {
         }
         // 相机拍照
         // 加载路径
+
         File file = new File(CAMERA_TEMP_PATH);
         if (!file.getParentFile().exists()) {
             file.getParentFile().mkdirs();
@@ -259,7 +261,10 @@ public class EditShopImgActivity extends BaseTitleActivity {
                 e.printStackTrace();
             }
         }
-        Uri uri = Uri.fromFile(file);
+//        Uri uri = Uri.fromFile(file);
+
+        Uri uri = FileProvider.getUriForFile(EditShopImgActivity.this, "com.youyou.xiaofeibao.fileprovider", file);//通过FileProvider创建一个content类型的Uri
+
         Intent intent1 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent1.putExtra(MediaStore.EXTRA_OUTPUT, uri);
         startActivityForResult(intent1, requestcode);

@@ -6,6 +6,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -565,7 +566,8 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
             }
         }
 
-        Uri uri = Uri.fromFile(file);
+        Uri uri = FileProvider.getUriForFile(mActivity, "com.youyou.xiaofeibao.fileprovider", file);//通过FileProvider创建一个content类型的Uri
+
         Intent intent1 = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent1.putExtra(MediaStore.EXTRA_OUTPUT, uri);
         startActivityForResult(intent1, requestcode);

@@ -104,10 +104,10 @@ public class PayActivityPre extends KeyBoardAutoDownActivity {
 
         //扫一扫跳过来的
         if(false==getIntent().getBooleanExtra("sub",false)){
-            Log.i("sssssssssss","111111111111111"+shopReturnRate+"222222222222");
+
             getMemidByUrl();
         }else{
-            Log.i("sssssssssss","2222222222222");
+
             shopReturnRate=getIntent().getStringExtra("return");
             setTitle(getIntent().getStringExtra("name"));
         }
@@ -161,6 +161,10 @@ public class PayActivityPre extends KeyBoardAutoDownActivity {
         tv_sure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+//                Log.i("sds","sds");
+
+
                 if (tv_sure.isActivated()) {//可点击状态
                     if (isTran) {//需要第三方支付
                         if (cb_isTong.isChecked() && pay_tong > 0) {
@@ -388,14 +392,15 @@ public class PayActivityPre extends KeyBoardAutoDownActivity {
         String f4="";
         try {
             Double percent= Double.parseDouble(shopReturnRate);
-            f4 = MathUtil.formatDouble(subNum * percent, 2);
+            f4 = MathUtil.formatDouble2Num(MathUtil.multiplyDouble(subNum, percent)) + "";
         }catch (Exception e){
             Toast.makeText(mActivity,"数据异常", Toast.LENGTH_SHORT).show();
-//            f4 = MathUtil.formatDouble(subNum * 0.1, 2);
+
         }
 
         tv_need_pay.setText(subNum + "");
         tv_back_tong.setText(f4);
+
 
         if (price == 0) {
             tv_sure.setActivated(false);

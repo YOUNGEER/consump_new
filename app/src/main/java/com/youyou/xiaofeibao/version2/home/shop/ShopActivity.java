@@ -122,7 +122,6 @@ public class ShopActivity extends BaseTitleActivity {
         }).send();
     }
 
-
     @Override
     protected void setListener() {
         super.setListener();

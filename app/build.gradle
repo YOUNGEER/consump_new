@@ -10,16 +10,22 @@ android {
         versionCode 25
         versionName "3.0.1"
 
+        // jpush add
         ndk {
             //选择要添加的对应cpu类型的.so库。
             abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a', 'x86', 'x86_64'
         }
-
+        // jpush add
         manifestPlaceholders = [
                 JPUSH_PKGNAME: applicationId,
                 JPUSH_APPKEY : "d405d2a2e20ec28537f2d63a", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
+
+        //Java 8 add
+        jackOptions {
+            enabled true
+        }
     }
     sourceSets {
         main {
@@ -43,6 +49,12 @@ android {
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
+    }
+
+    //Java 8 add
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
