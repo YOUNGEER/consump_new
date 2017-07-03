@@ -103,6 +103,8 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
     TextView tv_juti_addr;
     @ViewInject(R.id.tv_category)//经营类型
     TextView tv_category;
+    @ViewInject(R.id.et_invation)//邀请码
+            EditText et_invation;
 
 
 
@@ -171,6 +173,8 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
                 }
             }
         });
+
+        et_invation.setText("");
 
     }
 
@@ -285,6 +289,7 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
         shop.setShopname(et_shopname.getText().toString().trim());
         shop.setCategoryid(cateid);
         shop.setAddr(et_shopaddr.getText().toString().trim());
+        shop.setShopRefreePhone(et_invation.getText().toString().trim());
         shop.setLatitude(latitude);
         shop.setLongitude(longitude);
         shop.setDoorimg(otherpath);

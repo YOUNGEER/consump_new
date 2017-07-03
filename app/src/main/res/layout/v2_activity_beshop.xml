@@ -101,6 +101,21 @@
                 android:layout_height="@dimen/x1"
                 android:background="@color/line_color"/>
 
+            <EditText
+                android:id="@+id/et_invation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/hint_invation"
+                android:padding="@dimen/x12"
+                android:textColorHint="#D9D9DB"
+                android:textSize="@dimen/x12"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

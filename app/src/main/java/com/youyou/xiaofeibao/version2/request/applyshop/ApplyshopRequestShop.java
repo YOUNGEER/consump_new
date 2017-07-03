@@ -12,6 +12,7 @@ public class ApplyshopRequestShop {
     private String addr;//必填
     private String latitude;//必填
     private String longitude;//必填
+    private String shopRefreePhone;//选填
     private String doorimg;
     private String businessimg;
     private String licenseimg;
@@ -96,5 +97,13 @@ public class ApplyshopRequestShop {
 
     public void setDoorimg(String doorimg) {
         this.doorimg = doorimg;
+    }
+
+    public String getShopRefreePhone() {
+        return shopRefreePhone;
+    }
+
+    public void setShopRefreePhone(String shopRefreePhone) {
+        this.shopRefreePhone = shopRefreePhone;
     }
 }

@@ -411,31 +411,31 @@ public class MathUtil {
         return b1.add(b2).doubleValue();
     }
 
-    /**
-     * 格式化double指定位数小数。例如将11.123格式化为11.1。
-     *
-     * @param value    原double数字。
-     * @param decimals 小数位数。
-     * @return 格式化后的double，注意为硬格式化不存在四舍五入。
-     * @author CZH
-     */
-    public static String formatDouble(double value, int decimals) {
-        String doubleStr = "" + value;
-        int index = doubleStr.indexOf(".") != -1 ? doubleStr.indexOf(".")
-                : doubleStr.indexOf(",");
-        // Decimal point can not be found...
-        if (index == -1)
-            return doubleStr;
-        // Truncate all decimals
-        if (decimals == 0) {
-            return doubleStr.substring(0, index);
-        }
-        int len = index + decimals + 1;
-        if (len >= doubleStr.length())
-            len = doubleStr.length();
-        double d = Double.parseDouble(doubleStr.substring(0, len));
-        return String.valueOf(d);
-    }
+//    /**
+//     * 格式化double指定位数小数。例如将11.123格式化为11.1。
+//     *
+//     * @param value    原double数字。
+//     * @param decimals 小数位数。
+//     * @return 格式化后的double，注意为硬格式化不存在四舍五入。
+//     * @author CZH
+//     */
+//    public static String formatDouble(double value, int decimals) {
+//        String doubleStr = "" + value;
+//        int index = doubleStr.indexOf(".") != -1 ? doubleStr.indexOf(".")
+//                : doubleStr.indexOf(",");
+//        // Decimal point can not be found...
+//        if (index == -1)
+//            return doubleStr;
+//        // Truncate all decimals
+//        if (decimals == 0) {
+//            return doubleStr.substring(0, index);
+//        }
+//        int len = index + decimals + 1;
+//        if (len >= doubleStr.length())
+//            len = doubleStr.length();
+//        double d = Double.parseDouble(doubleStr.substring(0, len));
+//        return String.valueOf(d);
+//    }
 
     /**
      * 生成一个指定位数的随机数，并将其转换为字符串作为函数的返回值。

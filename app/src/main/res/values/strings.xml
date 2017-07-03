@@ -117,6 +117,7 @@
     <string name="hint_name">请输入您的真实姓名（必填）</string>
     <string name="hint_shopname">请输入您的店名（必填）</string>
     <string name="hint_shopaddr">请输入您的店铺地址（必填）</string>
+    <string name="hint_invation">请输入社区代理电话号码（选填）</string>
     <string name="hint_shopphone">请输入您的手机号（必填）</string>
     <string name="hint_idcard">请输入您的身份证号（选填）</string>
     <string name="hint_location">定位地址（必选）</string>
