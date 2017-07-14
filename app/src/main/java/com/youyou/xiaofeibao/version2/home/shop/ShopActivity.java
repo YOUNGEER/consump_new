@@ -50,10 +50,10 @@ public class ShopActivity extends BaseTitleActivity {
     TextView tv_shopname;
     @ViewInject(R.id.tv_money_count)
     TextView tv_money_count;
-    @ViewInject(R.id.tv_total)
-    TextView tv_total;
-    @ViewInject(R.id.tv_turnover)
-    TextView tv_turnover;
+    @ViewInject(R.id.tv_widthdraw)
+    TextView tv_widthdraw;
+    @ViewInject(R.id.tv_settle)
+    TextView tv_settle;
     @ViewInject(R.id.tv_supply)
     TextView tv_supply;
     @ViewInject(R.id.tv_share)
@@ -63,8 +63,8 @@ public class ShopActivity extends BaseTitleActivity {
 
     private String shopid;
 
-    private String today_money;
-    private String history_money;
+    private String yingshou_money;
+    private String tongbaobi_money;
 
     @Override
     protected int getTitleText() {
@@ -93,14 +93,15 @@ public class ShopActivity extends BaseTitleActivity {
                 }
                 ShopCountResponseShop data = shopCountResponseObject.getData().getShop();
                 tv_shopname.setText(data.getShopName());
-                tv_money_count.setText("余额：" + data.getMoney());
-                tv_total.setText(data.getTotal() + "");
-                tv_turnover.setText(data.getTurnover() + "");
+                tv_money_count.setText("总余额：" + data.getTotal_money());
+
+                tv_widthdraw.setText(data.getWithdrawal_money() + "");
+                tv_settle.setText(data.getSettlementing_money() + "");
 
                 shopid = data.getMemid();
 
-                today_money = data.getToday_withdrawal() + "";
-                history_money = data.getHistory_withdrawal() + "";
+                yingshou_money = data.getMoney() + "";
+                tongbaobi_money = data.getShop_money() + "";
 
             }
 
@@ -183,8 +184,8 @@ public class ShopActivity extends BaseTitleActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(mActivity, PostalActivity.class);
                 intent.putExtra("from", 1);
-                intent.putExtra("today", today_money);
-                intent.putExtra("history", history_money);
+                intent.putExtra("yingshou", yingshou_money);
+                intent.putExtra("tongbaobi", tongbaobi_money);
                 startActivityForResult(intent, 1);
             }
         });

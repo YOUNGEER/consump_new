@@ -21,6 +21,19 @@ public class ProxyResponseParam {
     private Double day_money;
     private Double history_withdrawal;
     private Double today_withdrawal;
+    /**
+     * balance : 0
+     * settlementing_money : 0
+     * shop_money : 0
+     * day_money : 0
+     * history_withdrawal : 0
+     * month_money : 0
+     * today_withdrawal : 0
+     * total_money : 0
+     */
+
+    private Double settlementing_money;
+    private Double shop_money;
 
 
     public String getType() {
@@ -85,5 +98,21 @@ public class ProxyResponseParam {
 
     public void setToday_withdrawal(Double today_withdrawal) {
         this.today_withdrawal = today_withdrawal;
+    }
+
+    public Double getSettlementing_money() {
+        return settlementing_money;
+    }
+
+    public void setSettlementing_money(Double settlementing_money) {
+        this.settlementing_money = settlementing_money;
+    }
+
+    public Double getShop_money() {
+        return shop_money;
+    }
+
+    public void setShop_money(Double shop_money) {
+        this.shop_money = shop_money;
     }
 }

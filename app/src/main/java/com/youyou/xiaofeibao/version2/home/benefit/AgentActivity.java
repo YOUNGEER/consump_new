@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.youyou.xiaofeibao.R;
 import com.youyou.xiaofeibao.framework.activity.BaseTitleActivity;
 import com.youyou.xiaofeibao.framework.net.BaseNetCallBack;
@@ -15,15 +18,12 @@ import com.youyou.xiaofeibao.version2.home.InfoWebView;
 import com.youyou.xiaofeibao.version2.home.benefit.detail.DetailsActivity;
 import com.youyou.xiaofeibao.version2.home.benefit.myshop.MyShopActivity;
 import com.youyou.xiaofeibao.version2.home.benefit.proxy.ProxyActivity;
-import com.youyou.xiaofeibao.version2.home.postal.PostalActivity;
+import com.youyou.xiaofeibao.version2.home.postal.Postal2Activity;
 import com.youyou.xiaofeibao.version2.home.shop.bankcrad.BankCardActivity;
 import com.youyou.xiaofeibao.version2.login.LoginOrRegisterActivity;
 import com.youyou.xiaofeibao.version2.request.EmptyRequestObject;
 import com.youyou.xiaofeibao.version2.response.proxy.ProxyResponseObject;
 import com.youyou.xiaofeibao.version2.response.proxy.ProxyResponseParam;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
-import com.lidroid.xutils.view.annotation.ViewInject;
 import com.youyou.xiaofeibao.wxapi.WechatShareHelper;
 
 /**
@@ -116,9 +116,9 @@ public class AgentActivity extends BaseTitleActivity implements View.OnClickList
                     tv_shopname.setText(param.getProxyname());
                 }
 
-                tv_money_count.setText("余额：" + param.getBalance() + "");
-                tv_total.setText(param.getTotal_money() + "");
-                tv_turnover.setText(param.getMonth_money() + "");
+                tv_money_count.setText("代理余额：" + param.getBalance() + "");
+                tv_total.setText(param.getSettlementing_money() + "");
+                tv_turnover.setText(param.getShop_money() + "");
                 money=param.getBalance()+"";
                 today=param.getDay_money()+"";
                 history_money=param.getHistory_withdrawal()+"";
@@ -152,10 +152,14 @@ public class AgentActivity extends BaseTitleActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_supply:
-                Intent intent=new Intent(mActivity, PostalActivity.class);
-                intent.putExtra("from",2);
-                intent.putExtra("today",today_money);
-                intent.putExtra("history",history_money);
+//                Intent intent=new Intent(mActivity, PostalActivity.class);
+//                intent.putExtra("from",2);
+//                intent.putExtra("today",today_money);
+//                intent.putExtra("history",history_money);
+//                startActivityForResult(intent,1);
+                Intent intent = new Intent(mActivity, Postal2Activity.class);
+                intent.setAction(tv_turnover.getText().toString().trim());
+                intent.putExtra("type", "2");
                 startActivityForResult(intent,1);
                 break;
             case R.id.tv_dpgl://我的商店

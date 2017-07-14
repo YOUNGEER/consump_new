@@ -19,7 +19,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="今日收益余额："
+                android:text="营收提现："
                 android:textColor="#444444"
                 android:textSize="@dimen/x13"
                 android:padding="@dimen/x12"
@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/tv_today_money"
+                android:id="@+id/tv_yingshou_money"
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="@dimen/x20"
@@ -38,7 +38,7 @@
 
 
             <TextView
-                android:id="@+id/tv_today"
+                android:id="@+id/tv_yingshou"
                 android:text="立即提现"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/x13"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="历史收益余额："
+                android:text="通宝币提现："
                 android:textColor="#444444"
                 android:textSize="@dimen/x13"
                 android:padding="@dimen/x12"
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/tv_history_money"
+                android:id="@+id/tv_tongbaobi_money"
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:textSize="@dimen/x20"
@@ -79,7 +79,7 @@
 
 
             <TextView
-                android:id="@+id/tv_history"
+                android:id="@+id/tv_tongbaobi"
                 android:text="立即提现"
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/x13"

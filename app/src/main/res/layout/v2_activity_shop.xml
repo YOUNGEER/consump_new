@@ -64,7 +64,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tv_turnover"
+                    android:id="@+id/tv_settle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/x4"
@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x6"
                     android:gravity="center"
-                    android:text="累计收入（元）"
+                    android:text="结算中金额（元）"
                     android:textColor="@color/white"
                     android:textSize="@dimen/x8"/>
 
@@ -99,7 +99,7 @@
 
                 <TextView
 
-                    android:id="@+id/tv_total"
+                    android:id="@+id/tv_widthdraw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/x4"
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x6"
                     android:gravity="center"
-                    android:text="本月销量（单）"
+                    android:text="可提现金额（单）"
                     android:textColor="@color/white"
                     android:textSize="@dimen/x8"/>
 

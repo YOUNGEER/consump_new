@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x6"
                     android:gravity="center"
-                    android:text="累计收入（元）"
+                    android:text="结算中金额（元）"
                     android:textColor="@color/white"
                     android:textSize="@dimen/x8"/>
 
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x6"
                     android:gravity="center"
-                    android:text="本月收入(元)"
+                    android:text="可体现金额(元)"
                     android:textColor="@color/white"
                     android:textSize="@dimen/x8"/>
             </LinearLayout>

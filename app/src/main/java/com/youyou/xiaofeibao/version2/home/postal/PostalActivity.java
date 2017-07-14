@@ -9,10 +9,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.youyou.xiaofeibao.R;
 import com.youyou.xiaofeibao.common.LayoutUtils;
 import com.youyou.xiaofeibao.framework.activity.BaseTitleActivity;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 
 /**
@@ -20,14 +20,14 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  */
 
 public class PostalActivity extends BaseTitleActivity {
-    @ViewInject(R.id.tv_today)
-    TextView tv_today;
-    @ViewInject(R.id.tv_history)
-    TextView tv_history;
-    @ViewInject(R.id.tv_today_money)
-    TextView tv_today_money;
-    @ViewInject(R.id.tv_history_money)
-    TextView tv_history_money;
+    @ViewInject(R.id.tv_yingshou)
+    TextView tv_yingshou;
+    @ViewInject(R.id.tv_tongbaobi)
+    TextView tv_tongbaobi;
+    @ViewInject(R.id.tv_yingshou_money)
+    TextView tv_yingshou_money;
+    @ViewInject(R.id.tv_tongbaobi_money)
+    TextView tv_tongbaobi_money;
 
     @Override
     protected int getTitleText() {
@@ -63,8 +63,8 @@ public class PostalActivity extends BaseTitleActivity {
             }
         });
 
-        tv_today_money.setText(getIntent().getStringExtra("today"));
-        tv_history_money.setText(getIntent().getStringExtra("history"));
+        tv_yingshou_money.setText(getIntent().getStringExtra("yingshou"));
+        tv_tongbaobi_money.setText(getIntent().getStringExtra("tongbaobi"));
 
     }
 
@@ -72,26 +72,28 @@ public class PostalActivity extends BaseTitleActivity {
     protected void initData() {
         super.initData();
 
-        tv_today.setText("立即提现 >");
-        tv_history.setText("立即提现 >");
+        tv_yingshou.setText("立即提现 >");
+        tv_tongbaobi.setText("立即提现 >");
 
-        tv_today.setOnClickListener(new View.OnClickListener() {
+        //营收
+        tv_yingshou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(mActivity,Postal2Activity.class);
-                intent.setAction(tv_today_money.getText().toString().trim());
+                intent.setAction(tv_yingshou_money.getText().toString().trim());
                 intent.putExtra("from",getIntent().getIntExtra("from",0));
-                intent.putExtra("type","2");
+                intent.putExtra("type", "1");
                 startActivityForResult(intent,1);
             }
         });
 
-        tv_history.setOnClickListener(new View.OnClickListener() {
+        //通宝币
+        tv_tongbaobi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(mActivity,Postal2Activity.class);
-                intent.setAction(tv_history_money.getText().toString().trim());
-                intent.putExtra("type","1");
+                intent.setAction(tv_tongbaobi_money.getText().toString().trim());
+                intent.putExtra("type", "2");
                 startActivityForResult(intent,1);
             }
         });
