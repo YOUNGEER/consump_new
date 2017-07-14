@@ -7,9 +7,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,22 +23,33 @@
                 android:layout_height="@dimen/x1"
                 android:background="@color/line_color"/>
 
-            <EditText
-                android:id="@+id/et_name"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:hint="@string/hint_name"
-                android:padding="@dimen/x12"
-                android:textColorHint="#D9D9DB"
-                android:textSize="@dimen/x12"
-                />
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/hint_name"
+                    android:padding="@dimen/x12"
+                    android:imeActionId="@+id/login"
+                    android:imeOptions="actionUnspecified"
+                    android:textColorHint="@color/beshop_hint"
+                    android:textSize="@dimen/x12"
+                    />
+            </android.support.design.widget.TextInputLayout>
+
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x1"
                 android:background="@color/line_color"/>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/et_cdcard"
                 android:layout_width="match_parent"
@@ -46,14 +57,17 @@
                 android:background="@null"
                 android:hint="@string/hint_idcard"
                 android:padding="@dimen/x12"
-                android:textColorHint="#D9D9DB"
+                android:textColorHint="@color/beshop_hint"
                 android:textSize="@dimen/x12"/>
-
+            </android.support.design.widget.TextInputLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x1"
                 android:background="@color/line_color"/>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/et_shopname"
                 android:layout_width="match_parent"
@@ -61,15 +75,18 @@
                 android:background="@null"
                 android:hint="@string/hint_shopname"
                 android:padding="@dimen/x12"
-                android:textColorHint="#D9D9DB"
+                android:textColorHint="@color/beshop_hint"
                 android:textSize="@dimen/x12"
                 />
-
+            </android.support.design.widget.TextInputLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x1"
                 android:background="@color/line_color"/>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/et_shopphone"
                 android:layout_width="match_parent"
@@ -77,15 +94,18 @@
                 android:background="@null"
                 android:hint="@string/hint_shopphone"
                 android:padding="@dimen/x12"
-                android:textColorHint="#D9D9DB"
+                android:inputType="phone"
+                android:textColorHint="@color/beshop_hint"
                 android:textSize="@dimen/x12"/>
-
+            </android.support.design.widget.TextInputLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x1"
                 android:background="@color/line_color"/>
 
-
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/et_shopaddr"
                 android:layout_width="match_parent"
@@ -93,14 +113,17 @@
                 android:background="@null"
                 android:hint="@string/hint_shopaddr"
                 android:padding="@dimen/x12"
-                android:textColorHint="#D9D9DB"
+                android:textColorHint="@color/beshop_hint"
                 android:textSize="@dimen/x12"/>
-
+            </android.support.design.widget.TextInputLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x1"
                 android:background="@color/line_color"/>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/et_invation"
                 android:layout_width="match_parent"
@@ -108,8 +131,70 @@
                 android:background="@null"
                 android:hint="@string/hint_invation"
                 android:padding="@dimen/x12"
-                android:textColorHint="#D9D9DB"
+                android:inputType="phone"
+                android:textColorHint="@color/beshop_hint"
                 android:textSize="@dimen/x12"/>
+            </android.support.design.widget.TextInputLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/hint_email"
+                    android:padding="@dimen/x12"
+                    android:textColorHint="@color/beshop_hint"
+                    android:textSize="@dimen/x12"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_servicephone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/hint_servicephone"
+                    android:inputType="phone"
+                    android:padding="@dimen/x12"
+                    android:textColorHint="@color/beshop_hint"
+                    android:textSize="@dimen/x12"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_shopnickname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/hint_shopnickname"
+                    android:padding="@dimen/x12"
+                    android:textColorHint="@color/beshop_hint"
+                    android:textSize="@dimen/x12"/>
+            </android.support.design.widget.TextInputLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -126,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/x12"
                     android:text="@string/hint_location"
-                    android:textColor="#D9D9DB"
+                    android:textColor="@color/beshop_hint"
                     android:textSize="@dimen/x11"/>
 
                 <TextView
@@ -148,7 +233,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x1"
                 android:background="@color/line_color"/>
-
             <TextView
                 android:id="@+id/tv_category"
                 android:layout_width="match_parent"
@@ -156,10 +240,128 @@
                 android:drawableRight="@mipmap/arrow"
                 android:hint="@string/hint_categoiory"
                 android:padding="@dimen/x12"
-                android:textColorHint="#D9D9DB"
+                android:textColorHint="@color/beshop_hint"
                 android:textSize="@dimen/x12"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
 
+            <TextView
+                android:id="@+id/tv_contactType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/arrow"
+                android:hint="@string/hint_contactType"
+                android:padding="@dimen/x12"
+                android:textColorHint="@color/beshop_hint"
+                android:textSize="@dimen/x12"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <TextView
+                android:id="@+id/tv_addressType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/arrow"
+                android:hint="@string/hint_addressType"
+                android:padding="@dimen/x12"
+                android:textColorHint="@color/beshop_hint"
+                android:textSize="@dimen/x12"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <TextView
+                android:id="@+id/tv_shopreturnrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/arrow"
+                android:hint="@string/hint_shopreturnrate"
+                android:padding="@dimen/x12"
+                android:textColorHint="@color/beshop_hint"
+                android:textSize="@dimen/x12"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_businessLicense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/hint_businessLicense"
+                    android:padding="@dimen/x12"
+                    android:textColorHint="@color/beshop_hint"
+                    android:textSize="@dimen/x12"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <TextView
+                android:id="@+id/tv_businessLicenseType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableRight="@mipmap/arrow"
+                android:hint="@string/hint_businessLicenseType"
+                android:padding="@dimen/x12"
+                android:textColorHint="@color/beshop_hint"
+                android:textSize="@dimen/x12"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_cardNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/hint_cardNo"
+                    android:padding="@dimen/x12"
+                    android:textColorHint="@color/beshop_hint"
+                    android:textSize="@dimen/x12"/>
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/line_color"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_cardName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/hint_cardName"
+                    android:padding="@dimen/x12"
+                    android:textColorHint="@color/beshop_hint"
+                    android:textSize="@dimen/x12"/>
+            </android.support.design.widget.TextInputLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x1"

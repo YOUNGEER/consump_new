@@ -240,4 +240,6 @@
     <color name="had_select">#304788</color>
     <color name="had_select_item">#2525FF</color>
 
+    <color name="beshop_hint">#D9D9DB</color>
+
 </resources>

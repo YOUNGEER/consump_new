@@ -12,6 +12,9 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.youyou.xiaofeibao.R;
 import com.youyou.xiaofeibao.framework.activity.BaseFragment;
 import com.youyou.xiaofeibao.framework.net.BaseNetCallBack;
@@ -34,9 +37,6 @@ import com.youyou.xiaofeibao.version2.response.shoplist.ShopListResponseObject;
 import com.youyou.xiaofeibao.version2.response.shoplist.ShopListResponseParam;
 import com.youyou.xiaofeibao.version2.tool.Progress;
 import com.youyou.xiaofeibao.view.ScreenUtils;
-import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -241,7 +241,6 @@ public class AllicanceFragment extends BaseFragment implements View.OnClickListe
                         tv_shaixuan.setTextColor(getResources().getColor(R.color.had_select));
                         sortId = bean.getCategoryId();
                         break;
-
                 }
                 page = 1;
                 getLoanListData();
@@ -388,7 +387,6 @@ public class AllicanceFragment extends BaseFragment implements View.OnClickListe
             }
         }).send();
     }
-
 
     //获取类别信息
     private void getCategoryData() {

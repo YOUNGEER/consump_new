@@ -29,10 +29,10 @@ public class Config {
 //    public static String Base_Url = "http://1673z1e347.51mypc.cn/xfb/";
 
     //242
-//    public static String Base_Url = "http://192.168.1.9:8888/";
+    public static String Base_Url = "http://192.168.1.25:8080/xfb/";
 
     //正式
-    public static String Base_Url = "http://116.62.34.84/xfb/";
+//    public static String Base_Url = "http://116.62.34.84/xfb/";
 
     public static String indexPage = Base_Url + "welcome/adIndex";
 

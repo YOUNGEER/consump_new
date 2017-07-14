@@ -200,9 +200,9 @@
             android:name=".version2.home.shop.IntroduceShopActivity"
             android:theme="@style/AppTheme.action"/>
         <activity
-            android:name=".version2.home.shop.BeShopActivity"
+            android:name=".version2.home.shop.beshop.BeShopActivity"
             android:theme="@style/AppTheme.action"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+            />
         <activity
             android:name=".version2.mine.favorite.FavoriteActivity"
             android:theme="@style/AppTheme.action"/>

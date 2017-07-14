@@ -18,6 +18,32 @@ public class ApplyshopRequestShop {
     private String licenseimg;
     private String idcardnofrontimg;
     private String idcardnobackimg;
+    /**
+     * aliasName : 商户简称
+     * addressType : 地址类型
+     * shopphone : 联系人电话
+     * contactType : 联系人类型
+     * servicePhone : 客服电话
+     * shopreturnrate : 消费返币比例（选填）
+     * posrate : POS费率(选填)
+     * businessLicense : 营业执照编号(选填)
+     * businessLicenseType : 营业执照类型(选填)
+     * cardNo : 银行卡号(选填)
+     * cardName : 银行卡持卡人姓名(选填)
+     */
+
+    private String aliasName;
+    private String addressType;
+    private String shopphone;
+    private String contactType;
+    private String servicePhone;
+    private String shopreturnrate;
+
+    private String posrate;
+    private String businessLicense;
+    private String businessLicenseType;
+    private String cardNo;
+    private String cardName;
 
     public String getShopname() {
         return shopname;
@@ -106,4 +132,94 @@ public class ApplyshopRequestShop {
     public void setShopRefreePhone(String shopRefreePhone) {
         this.shopRefreePhone = shopRefreePhone;
     }
+
+    public String getAliasName() {
+        return aliasName;
+    }
+
+    public void setAliasName(String aliasName) {
+        this.aliasName = aliasName;
+    }
+
+    public String getAddressType() {
+        return addressType;
+    }
+
+    public void setAddressType(String addressType) {
+        this.addressType = addressType;
+    }
+
+    public String getShopphone() {
+        return shopphone;
+    }
+
+    public void setShopphone(String shopphone) {
+        this.shopphone = shopphone;
+    }
+
+    public String getContactType() {
+        return contactType;
+    }
+
+    public void setContactType(String contactType) {
+        this.contactType = contactType;
+    }
+
+    public String getServicePhone() {
+        return servicePhone;
+    }
+
+    public void setServicePhone(String servicePhone) {
+        this.servicePhone = servicePhone;
+    }
+
+    public String getShopreturnrate() {
+        return shopreturnrate;
+    }
+
+    public void setShopreturnrate(String shopreturnrate) {
+        this.shopreturnrate = shopreturnrate;
+    }
+
+    public String getPosrate() {
+        return posrate;
+    }
+
+    public void setPosrate(String posrate) {
+        this.posrate = posrate;
+    }
+
+    public String getBusinessLicense() {
+        return businessLicense;
+    }
+
+    public void setBusinessLicense(String businessLicense) {
+        this.businessLicense = businessLicense;
+    }
+
+    public String getBusinessLicenseType() {
+        return businessLicenseType;
+    }
+
+    public void setBusinessLicenseType(String businessLicenseType) {
+        this.businessLicenseType = businessLicenseType;
+    }
+
+    public String getCardNo() {
+        return cardNo;
+    }
+
+    public void setCardNo(String cardNo) {
+        this.cardNo = cardNo;
+    }
+
+    public String getCardName() {
+        return cardName;
+    }
+
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+
+
 }

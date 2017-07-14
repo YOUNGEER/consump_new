@@ -1,23 +1,17 @@
-package com.youyou.xiaofeibao.version2.home.shop;
+package com.youyou.xiaofeibao.version2.home.shop.beshop;
 
 import android.Manifest;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +27,6 @@ import com.youyou.xiaofeibao.framework.net.BaseNetCallBack;
 import com.youyou.xiaofeibao.framework.net.ResponseBuilder;
 import com.youyou.xiaofeibao.net.CommonOkHttpClient;
 import com.youyou.xiaofeibao.version2.Config;
-import com.youyou.xiaofeibao.version2.alliance.adapter.CustomSelectAdapter;
-import com.youyou.xiaofeibao.version2.alliance.adapter.CustomSelectBean;
 import com.youyou.xiaofeibao.version2.home.shop.store.MapViewActivity;
 import com.youyou.xiaofeibao.version2.request.BaseRequestParam;
 import com.youyou.xiaofeibao.version2.request.applyshop.ApplyShopRequestObject;
@@ -42,7 +34,11 @@ import com.youyou.xiaofeibao.version2.request.applyshop.ApplyShopRequestParam;
 import com.youyou.xiaofeibao.version2.request.applyshop.ApplyShopRequsetMember;
 import com.youyou.xiaofeibao.version2.request.applyshop.ApplyshopRequestShop;
 import com.youyou.xiaofeibao.version2.response.BaseResponseObject;
-import com.youyou.xiaofeibao.version2.response.shopcategory.ShopCategoryResponseObject;
+import com.youyou.xiaofeibao.version2.response.allcategory.AddressTypeList;
+import com.youyou.xiaofeibao.version2.response.allcategory.AllCategoryResponseObjecet;
+import com.youyou.xiaofeibao.version2.response.allcategory.BusinessList;
+import com.youyou.xiaofeibao.version2.response.allcategory.CategoryList;
+import com.youyou.xiaofeibao.version2.response.allcategory.ContactTypeList;
 import com.youyou.xiaofeibao.version2.tool.BitmapUtils;
 import com.youyou.xiaofeibao.version2.tool.Progress;
 import com.youyou.xiaofeibao.version2.widget.PopupWindows;
@@ -89,24 +85,42 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
     private String longitude = "";
 
 
-    @ViewInject(R.id.et_name)//真实姓名
+    @ViewInject(R.id.et_name)//真实姓名,必填
     EditText et_name;
-    @ViewInject(R.id.et_cdcard)//身份证
+    @ViewInject(R.id.et_cdcard)//身份证，必填
     EditText et_cdcard;
-    @ViewInject(R.id.et_shopname)//店名
+    @ViewInject(R.id.et_shopname)//店名，必填
     EditText et_shopname;
-    @ViewInject(R.id.et_shopphone)//手机号
+    @ViewInject(R.id.et_shopphone)//手机号，必填
     EditText et_shopphone;
-    @ViewInject(R.id.et_shopaddr)//店铺地址
+    @ViewInject(R.id.et_shopaddr)//店铺地址，必填
     EditText et_shopaddr;
-    @ViewInject(R.id.tv_juti_addr)//定位地址
-    TextView tv_juti_addr;
-    @ViewInject(R.id.tv_category)//经营类型
-    TextView tv_category;
-    @ViewInject(R.id.et_invation)//邀请码
+    @ViewInject(R.id.et_invation)//邀请码，选填
             EditText et_invation;
-
-
+    @ViewInject(R.id.et_email)//emila，必填
+            EditText et_email;
+    @ViewInject(R.id.et_servicephone)//客服电话，必填
+            EditText et_servicephone;
+    @ViewInject(R.id.et_shopnickname)//店铺简称，必填
+            EditText et_shopnickname;
+    @ViewInject(R.id.tv_juti_addr)//定位地址，必填
+    TextView tv_juti_addr;
+    @ViewInject(R.id.tv_category)//经营类型，必填
+    TextView tv_category;
+    @ViewInject(R.id.tv_contactType)
+    TextView tv_contactType;//联系人类型，必填
+    @ViewInject(R.id.tv_addressType)
+    TextView tv_addressType;//地址类型，必填
+    @ViewInject(R.id.tv_shopreturnrate)
+    TextView tv_shopreturnrate;//返币比例，选填
+    @ViewInject(R.id.et_businessLicense)//营业执照编号，选填
+            EditText et_businessLicense;
+    @ViewInject(R.id.tv_businessLicenseType)
+    TextView tv_businessLicenseType;//营业执照类型
+    @ViewInject(R.id.et_cardNo)//银行卡编号，选填
+            EditText et_cardNo;
+    @ViewInject(R.id.et_cardName)//持卡人姓名，选填
+            EditText et_cardName;
 
     @ViewInject(R.id.tv_sure)
     TextView tv_sure;
@@ -122,6 +136,10 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
 
 
     private String cateid = "";
+    private String mContactId = "";
+    private String addressId = "";
+    private String budinessId = "";
+
     private String cateName = "";
 
     private String zhengpath = "";
@@ -131,11 +149,16 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
 
     private PopupWindows mPopupWindows;
 
-    private PopupWindow catePop;
-    private ListView listView;
-    private CustomSelectAdapter adapter;
     private View Partent;
 
+    private LayoutInflater mInflater;
+
+    private RateSeletorUtils reteSelect;//返币比例选择窗
+
+    private SeletorUtils mAddressType;
+    private SeletorUtils mBuesinessType;
+    private SeletorUtils mContactType;
+    private SeletorUtils mCategoryType;
 
     @Override
     protected int getTitleText() {
@@ -151,42 +174,68 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
     protected void initData() {
         super.initData();
         mPopupWindows = new PopupWindows(this);
-        View categoryPopupView = View.inflate(mActivity, R.layout.pop_select_money, null);
-        catePop = new PopupWindow(categoryPopupView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        listView = (ListView) categoryPopupView.findViewById(R.id.listview_pop);
-        adapter = new CustomSelectAdapter(mActivity, R.layout.list_select_pop);
-        listView.setAdapter(adapter);
-        catePop.setBackgroundDrawable(new BitmapDrawable());
-        catePop.setOutsideTouchable(false);
-        Partent = LayoutInflater.from(mActivity).inflate(R.layout.v2_activity_beshop, null);
-        getCategoryData();
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CustomSelectBean bean = adapter.getItem(position);
-                cateid = bean.getCategoryId();
-                Log.i("ssssssss", "ewefs" + cateid);
-                cateName = bean.getName();
-                tv_category.setText(cateName);
-                if (catePop.isShowing()) {
-                    catePop.dismiss();
-                }
-            }
-        });
-
+        mInflater = LayoutInflater.from(mActivity);
+        Partent = mInflater.inflate(R.layout.v2_activity_beshop, null);
         et_invation.setText("");
 
+        reteSelect = new RateSeletorUtils(Partent, mActivity, R.layout.pop_select_money) {
+            @Override
+            void setAdapterItem(String str) {
+                tv_shopreturnrate.setText(str);
+            }
+        };
+
+        mAddressType = new SeletorUtils(Partent, mInflater, mActivity, 0) {
+            @Override
+            void setAdapterItem(Object bean) {
+                AddressTypeList data = ((AddressTypeList) bean);
+                tv_addressType.setText(data.getVal());
+                addressId = data.getAddressType();
+            }
+        };
+        mBuesinessType = new SeletorUtils(Partent, mInflater, mActivity, 1) {
+            @Override
+            void setAdapterItem(Object bean) {
+                BusinessList data = ((BusinessList) bean);
+                tv_businessLicenseType.setText(data.getLicenseName());
+                budinessId = data.getLicenseId();
+            }
+        };
+        mContactType = new SeletorUtils(Partent, mInflater, mActivity, 2) {
+            @Override
+            void setAdapterItem(Object bean) {
+                ContactTypeList data = ((ContactTypeList) bean);
+                tv_contactType.setText(data.getTypeName());
+                mContactId = data.getTypeId();
+            }
+        };
+        mCategoryType = new SeletorUtils(Partent, mInflater, mActivity, 3) {
+            @Override
+            void setAdapterItem(Object bean) {
+                CategoryList data = ((CategoryList) bean);
+                cateid = data.getCategoryId();
+                cateName = data.getName();
+                tv_category.setText(cateName);
+
+            }
+        };
+
+        getCategoryData();
     }
 
     //获取类别信息
     private void getCategoryData() {
 
-        ResponseBuilder<BaseRequestParam, ShopCategoryResponseObject> builder =
-                new ResponseBuilder<>(new BaseRequestParam(), Config.CATEGORY,ShopCategoryResponseObject.class);
-        builder.setCallBack(new BaseNetCallBack<ShopCategoryResponseObject>() {
+        ResponseBuilder<BaseRequestParam, AllCategoryResponseObjecet> builder =
+                new ResponseBuilder<>(new BaseRequestParam(), Config.SUPPLY_PRE, AllCategoryResponseObjecet.class);
+        builder.setCallBack(new BaseNetCallBack<AllCategoryResponseObjecet>() {
             @Override
-            public void onSuccess(ShopCategoryResponseObject reponse) {
-                adapter.setList(reponse.getData().getCategorys());
+            public void onSuccess(AllCategoryResponseObjecet reponse) {
+                mAddressType.setData(reponse.getData().getAddressTypeList());
+                mBuesinessType.setData(reponse.getData().getBusinessList());
+                mContactType.setData(reponse.getData().getContactTypeList());
+                mCategoryType.setData(reponse.getData().getList());
+
             }
         }).send();
     }
@@ -195,26 +244,27 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
     protected void setListener() {
         super.setListener();
         tv_sure.setOnClickListener(this);
-        tv_category.setOnClickListener(this);
+
         iv_zheng.setOnClickListener(this);
         iv_fan.setOnClickListener(this);
         tv_yingye.setOnClickListener(this);
         tv_other.setOnClickListener(this);
         tv_juti_addr.setOnClickListener(this);
+        tv_shopreturnrate.setOnClickListener(this);
+
+        tv_addressType.setOnClickListener(this);
+        tv_businessLicenseType.setOnClickListener(this);
+        tv_contactType.setOnClickListener(this);
+        tv_category.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_sure:
-
                 if (checkData()) {
                     submitDataByUrl();
                 }
-
-                break;
-            case R.id.tv_category:
-                catePop.showAtLocation(Partent, Gravity.BOTTOM, 0, 0);
                 break;
             case R.id.iv_zheng:
                 showPopupWindows(0);
@@ -231,18 +281,46 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
             case R.id.tv_juti_addr:
                 startActivityForResult(new Intent(mActivity, MapViewActivity.class),LOCATION);
                 break;
+            case R.id.tv_shopreturnrate://返币比例弹出选择
+                reteSelect.showPopUpwindow();
+                break;
+            case R.id.tv_addressType:
+                mAddressType.showPopUpwindow();
+                break;
+            case R.id.tv_businessLicenseType:
+                mBuesinessType.showPopUpwindow();
+                break;
+            case R.id.tv_contactType:
+                mContactType.showPopUpwindow();
+                break;
+            case R.id.tv_category:
+                mCategoryType.showPopUpwindow();
+                break;
         }
     }
 
     private boolean checkData() {
+        //姓名，身份证，邮箱，全部必填
         if (TextUtils.isEmpty(et_name.getText().toString())) {
             Toast.makeText(mActivity, R.string.hint_name, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (TextUtils.isEmpty(et_cdcard.getText().toString())) {
+            Toast.makeText(mActivity, "请填入身份证号，必填", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (!TextUtils.isEmpty(et_cdcard.getText().toString())&&!new IDCard().verify(et_cdcard.getText().toString().trim())) {
             Toast.makeText(mActivity, "身份证格式不正确或不存在该身份证号", Toast.LENGTH_SHORT).show();
             return false;
         }
+
+        if (TextUtils.isEmpty(et_email.getText().toString())) {
+            Toast.makeText(mActivity, R.string.hint_email, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        //店名，电话，地址，客服电话，店铺简称，定位，营业范围，联系人类型,地址类型
+
         if (TextUtils.isEmpty(et_shopname.getText().toString())) {
             Toast.makeText(mActivity, R.string.hint_shopname, Toast.LENGTH_SHORT).show();
             return false;
@@ -251,8 +329,17 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
             Toast.makeText(mActivity, R.string.hint_shopphone, Toast.LENGTH_SHORT).show();
             return false;
         }
+
         if (TextUtils.isEmpty(et_shopaddr.getText().toString())) {
             Toast.makeText(mActivity, R.string.hint_shopaddr, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (TextUtils.isEmpty(et_servicephone.getText().toString())) {
+            Toast.makeText(mActivity, R.string.hint_servicephone, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (TextUtils.isEmpty(et_shopnickname.getText().toString())) {
+            Toast.makeText(mActivity, R.string.hint_shopnickname, Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -263,6 +350,14 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
 
         if (TextUtils.isEmpty(tv_category.getText().toString())) {
             Toast.makeText(mActivity, R.string.hint_categoiory, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (TextUtils.isEmpty(tv_contactType.getText().toString())) {
+            Toast.makeText(mActivity, R.string.hint_categoiory, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        if (TextUtils.isEmpty(tv_addressType.getText().toString())) {
+            Toast.makeText(mActivity, R.string.hint_addressType, Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -282,21 +377,37 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
         final ApplyShopRequsetMember member = new ApplyShopRequsetMember();
         ApplyshopRequestShop shop = new ApplyshopRequestShop();
 
+        //姓名，身份证，邮箱
         member.setName(et_name.getText().toString().trim());
         member.setIdcardno(et_cdcard.getText().toString().trim());
-        member.setPhone(et_shopphone.getText().toString().trim());
+        member.setEmail(et_email.getText().toString().trim());
 
+        //店名，电话，地址，社区电话代理，客服电话，店铺简称，定位，营业范围，联系人类型
+        //地址类型，返币比例，营业执照编号，营业执照类型，银行卡号，银行卡类型
         shop.setShopname(et_shopname.getText().toString().trim());
-        shop.setCategoryid(cateid);
+        shop.setShopphone(et_shopphone.getText().toString().trim());
         shop.setAddr(et_shopaddr.getText().toString().trim());
         shop.setShopRefreePhone(et_invation.getText().toString().trim());
+        shop.setServicePhone(et_servicephone.getText().toString().trim());
+        shop.setAliasName(et_shopnickname.getText().toString().trim());
         shop.setLatitude(latitude);
         shop.setLongitude(longitude);
-        shop.setDoorimg(otherpath);
+        shop.setCategoryid(cateid);
+        shop.setContactType(mContactId);
+        shop.setAddressType(addressId);
+        shop.setShopreturnrate(tv_shopreturnrate.getText().toString().trim());
+        shop.setBusinessLicense(et_businessLicense.getText().toString().trim());
+        shop.setBusinessLicenseType(budinessId);
+        shop.setCardNo(et_cardNo.getText().toString().trim());
+        shop.setCardName(et_cardName.getText().toString().trim());
 
+        //四张图片，店铺首页图(必填)，身份证正反面，营业执照
+
+        shop.setDoorimg(otherpath);
         shop.setIdcardnofrontimg(zhengpath);
         shop.setIdcardnobackimg(fanpath);
         shop.setBusinessimg(yingyepath);
+
 //        shop.setLicenseimg(otherpath);
 
         param.setType("1");

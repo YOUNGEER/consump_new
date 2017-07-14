@@ -118,11 +118,21 @@
     <string name="hint_shopname">请输入您的店名（必填）</string>
     <string name="hint_shopaddr">请输入您的店铺地址（必填）</string>
     <string name="hint_invation">请输入社区代理电话号码（选填）</string>
+    <string name="hint_email">请输入您的联系人邮箱（必填）</string>
+    <string name="hint_servicephone">请输入您的客服电话（必填）</string>
+    <string name="hint_shopnickname">请输入您的店铺简称（必填）</string>
+    <string name="hint_businessLicense">请输入您的营业执照编号（选填）</string>
+    <string name="hint_cardNo">请输入您的银行卡号（选填）</string>
     <string name="hint_shopphone">请输入您的手机号（必填）</string>
-    <string name="hint_idcard">请输入您的身份证号（选填）</string>
-    <string name="hint_location">定位地址（必选）</string>
+    <string name="hint_idcard">请输入您的身份证号（必填）</string>
+    <string name="hint_location">定位地址（必填）</string>
 
-    <string name="hint_categoiory">请选择您的经营范围（必选）</string>
+    <string name="hint_categoiory">请选择您的经营范围（必填）</string>
+    <string name="hint_contactType">请选择您的联系人类型（必填）</string>
+    <string name="hint_addressType">请选择您的地址类型（必填）</string>
+    <string name="hint_shopreturnrate">请选择消费返币比例（选填）</string>
+    <string name="hint_businessLicenseType">请选择营业执照类型（选填）</string>
+    <string name="hint_cardName">请选择银行卡持卡人姓名（选填）</string>
 
     <string name="submit_idcard">请上传您的身份证照片（选填）</string>
     <string name="submit_salecard">请上传您的营业执照照片（选填）</string>

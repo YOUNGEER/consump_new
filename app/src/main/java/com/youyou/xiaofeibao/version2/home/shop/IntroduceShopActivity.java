@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.youyou.xiaofeibao.R;
 import com.youyou.xiaofeibao.framework.activity.BaseTitleActivity;
-import com.lidroid.xutils.view.annotation.ViewInject;
+import com.youyou.xiaofeibao.version2.home.shop.beshop.BeShopActivity;
 
 
 /**
