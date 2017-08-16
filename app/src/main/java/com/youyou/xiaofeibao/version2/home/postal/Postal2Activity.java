@@ -105,13 +105,10 @@ public class Postal2Activity extends BaseTitleActivity {
         pwdPop.setBackgroundDrawable(new BitmapDrawable(getResources(), (Bitmap) null));
         pwdPop.setAnimationStyle(R.style.popupAnimation);
 
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(null!=pwdPop&&pwdPop.isShowing()){
-                    pwdPop.dismiss();
-                    pwdview.clearPassword();
-                }
+        mBack.setOnClickListener(v -> {
+            if (null != pwdPop && pwdPop.isShowing()) {
+                pwdPop.dismiss();
+                pwdview.clearPassword();
             }
         });
 
