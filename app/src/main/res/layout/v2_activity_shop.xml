@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x6"
                     android:gravity="center"
-                    android:text="结算中金额（元）"
+                    android:text="营收金额（元）"
                     android:textColor="@color/white"
                     android:textSize="@dimen/x8"/>
 
@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x6"
                     android:gravity="center"
-                    android:text="可提现金额（单）"
+                    android:text="优惠收益余额（元）"
                     android:textColor="@color/white"
                     android:textSize="@dimen/x8"/>
 

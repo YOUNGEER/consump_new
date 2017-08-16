@@ -43,8 +43,6 @@ public class BankCardActivity extends BaseTitleActivity implements MybankAdapter
 
     private MybankAdapter mAdapter;
 
-
-
     @Override
     protected int getTitleText() {
         return R.string.nyyhk;

@@ -18,6 +18,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lidroid.xutils.view.annotation.ViewInject;
 import com.youyou.xiaofeibao.R;
 import com.youyou.xiaofeibao.framework.Dialog;
 import com.youyou.xiaofeibao.framework.activity.BaseTitleActivity;
@@ -34,7 +35,6 @@ import com.youyou.xiaofeibao.version2.response.mybank.MybankResponseObjecet;
 import com.youyou.xiaofeibao.version2.response.mybank.MybankResponselist;
 import com.youyou.xiaofeibao.version2.tool.MD5;
 import com.youyou.xiaofeibao.version2.tool.Progress;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.List;
 
@@ -87,7 +87,7 @@ public class Postal2Activity extends BaseTitleActivity {
         money = getIntent().getAction();
         getBanklist();
 
-        if ("".equals(money)) {
+        if (money == null || "".equals(money)) {
             money = "0";
         }
 

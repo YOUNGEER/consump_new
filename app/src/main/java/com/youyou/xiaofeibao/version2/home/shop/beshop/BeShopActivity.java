@@ -180,14 +180,14 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
 
         reteSelect = new RateSeletorUtils(Partent, mActivity, R.layout.pop_select_money) {
             @Override
-            void setAdapterItem(String str) {
+            public void setAdapterItem(String str) {
                 tv_shopreturnrate.setText(str);
             }
         };
 
         mAddressType = new SeletorUtils(Partent, mInflater, mActivity, 0) {
             @Override
-            void setAdapterItem(Object bean) {
+            public void setAdapterItem(Object bean) {
                 AddressTypeList data = ((AddressTypeList) bean);
                 tv_addressType.setText(data.getVal());
                 addressId = data.getAddressType();
@@ -195,7 +195,7 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
         };
         mBuesinessType = new SeletorUtils(Partent, mInflater, mActivity, 1) {
             @Override
-            void setAdapterItem(Object bean) {
+            public void setAdapterItem(Object bean) {
                 BusinessList data = ((BusinessList) bean);
                 tv_businessLicenseType.setText(data.getLicenseName());
                 budinessId = data.getLicenseId();
@@ -203,7 +203,7 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
         };
         mContactType = new SeletorUtils(Partent, mInflater, mActivity, 2) {
             @Override
-            void setAdapterItem(Object bean) {
+            public void setAdapterItem(Object bean) {
                 ContactTypeList data = ((ContactTypeList) bean);
                 tv_contactType.setText(data.getTypeName());
                 mContactId = data.getTypeId();
@@ -211,7 +211,7 @@ public class BeShopActivity extends KeyBoardAutoDownActivity implements View.OnC
         };
         mCategoryType = new SeletorUtils(Partent, mInflater, mActivity, 3) {
             @Override
-            void setAdapterItem(Object bean) {
+            public void setAdapterItem(Object bean) {
                 CategoryList data = ((CategoryList) bean);
                 cateid = data.getCategoryId();
                 cateName = data.getName();

@@ -11,7 +11,7 @@ public class FundResponseParam {
      * createyear : 2017
      * createtime : 9:32:
      * money : 0
-     * shop_description : 在商家【便利超市】消费总金额：100.0元。其中：【消费宝支付】支付现金：0.0元，通宝币支付：100.0元；
+     * shop_description : 在商家【便利超市】消费总金额：100.0元。其中：【消费宝支付】支付现金：0.0元，智惠币支付：100.0元；
      * title : 用户消费
      * type : 0
      */

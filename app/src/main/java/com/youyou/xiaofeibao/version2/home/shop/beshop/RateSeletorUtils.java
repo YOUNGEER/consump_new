@@ -67,6 +67,6 @@ public abstract class RateSeletorUtils {
         mAdapter.setList(list);
     }
 
-    abstract void setAdapterItem(String str);
+    protected abstract void setAdapterItem(String str);
 
 }

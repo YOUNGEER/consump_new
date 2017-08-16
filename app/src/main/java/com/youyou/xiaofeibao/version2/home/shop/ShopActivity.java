@@ -95,14 +95,13 @@ public class ShopActivity extends BaseTitleActivity {
                 tv_shopname.setText(data.getShopName());
                 tv_money_count.setText("总余额：" + data.getTotal_money());
 
-                tv_widthdraw.setText(data.getWithdrawal_money() + "");
-                tv_settle.setText(data.getSettlementing_money() + "");
+                yingshou_money = data.getMoney() + "";
+                tongbaobi_money = data.getSettlementing_money() + "";
+
+                tv_settle.setText(yingshou_money + "");
+                tv_widthdraw.setText(tongbaobi_money + "");
 
                 shopid = data.getMemid();
-
-                yingshou_money = data.getMoney() + "";
-                tongbaobi_money = data.getShop_money() + "";
-
             }
 
             @Override

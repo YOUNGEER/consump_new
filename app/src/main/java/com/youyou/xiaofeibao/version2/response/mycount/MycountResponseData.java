@@ -9,6 +9,7 @@ import java.util.List;
 public class MycountResponseData {
 
     private String balance;
+    private Double settlementing_money;
     private String isBindWx;
     private String isBindZfb;
     private List<MycountResponseParam> list;
@@ -44,5 +45,13 @@ public class MycountResponseData {
 
     public void setList(List<MycountResponseParam> list) {
         this.list = list;
+    }
+
+    public Double getSettlementing_money() {
+        return settlementing_money;
+    }
+
+    public void setSettlementing_money(Double settlementing_money) {
+        this.settlementing_money = settlementing_money;
     }
 }

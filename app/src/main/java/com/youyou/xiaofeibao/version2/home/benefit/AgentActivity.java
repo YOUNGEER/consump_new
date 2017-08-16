@@ -2,7 +2,6 @@ package com.youyou.xiaofeibao.version2.home.benefit;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
@@ -56,12 +55,8 @@ public class AgentActivity extends BaseTitleActivity implements View.OnClickList
     @ViewInject(R.id.tv_baodan)
     TextView tv_baodan;
 
-    private String today;
+    private Double money;
 
-    private String money="";
-
-    private String today_money;
-    private String history_money;
 
     @Override
     protected int getTitleText() {
@@ -86,12 +81,7 @@ public class AgentActivity extends BaseTitleActivity implements View.OnClickList
         tv_baodan.setOnClickListener(this);
 
         pl_refresh.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
-        pl_refresh.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ScrollView>() {
-            @Override
-            public void onRefresh(PullToRefreshBase<ScrollView> refreshView) {
-                getData();
-            }
-        });
+        pl_refresh.setOnRefreshListener(refreshView -> getData());
     }
 
     @Override
@@ -116,13 +106,10 @@ public class AgentActivity extends BaseTitleActivity implements View.OnClickList
                     tv_shopname.setText(param.getProxyname());
                 }
 
-                tv_money_count.setText("代理余额：" + param.getBalance() + "");
-                tv_total.setText(param.getSettlementing_money() + "");
-                tv_turnover.setText(param.getShop_money() + "");
-                money=param.getBalance()+"";
-                today=param.getDay_money()+"";
-                history_money=param.getHistory_withdrawal()+"";
-                today_money=param.getToday_withdrawal()+"";
+                tv_money_count.setText("代理收益：" + param.getSettlementing_money() + "");
+                money = param.getSettlementing_money();
+//                tv_total.setText(param.getSettlementing_money() + "");
+//                tv_turnover.setText(param.getShop_money() + "");
 
             }
 
@@ -158,7 +145,7 @@ public class AgentActivity extends BaseTitleActivity implements View.OnClickList
 //                intent.putExtra("history",history_money);
 //                startActivityForResult(intent,1);
                 Intent intent = new Intent(mActivity, Postal2Activity.class);
-                intent.setAction(tv_turnover.getText().toString().trim());
+                intent.setAction(money + "");
                 intent.putExtra("type", "2");
                 startActivityForResult(intent,1);
                 break;

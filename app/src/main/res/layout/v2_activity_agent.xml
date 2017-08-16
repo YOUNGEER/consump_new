@@ -53,6 +53,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary">
@@ -85,12 +86,14 @@
             </LinearLayout>
 
             <View
+                android:visibility="gone"
                 android:layout_width="@dimen/x1"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/x4"
                 android:background="@color/white"/>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -110,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/x6"
                     android:gravity="center"
-                    android:text="可体现金额(元)"
+                    android:text="可提现金额(元)"
                     android:textColor="@color/white"
                     android:textSize="@dimen/x8"/>
             </LinearLayout>

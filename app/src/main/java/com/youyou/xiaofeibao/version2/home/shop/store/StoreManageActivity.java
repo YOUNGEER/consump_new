@@ -2,7 +2,6 @@ package com.youyou.xiaofeibao.version2.home.shop.store;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -10,6 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -27,12 +27,20 @@ import com.youyou.xiaofeibao.framework.activity.BaseTitleActivity;
 import com.youyou.xiaofeibao.framework.net.BaseNetCallBack;
 import com.youyou.xiaofeibao.framework.net.ResponseBuilder;
 import com.youyou.xiaofeibao.version2.Config;
+import com.youyou.xiaofeibao.version2.home.shop.beshop.RateSeletorUtils;
+import com.youyou.xiaofeibao.version2.home.shop.beshop.SeletorUtils;
+import com.youyou.xiaofeibao.version2.request.BaseRequestParam;
 import com.youyou.xiaofeibao.version2.request.EmptyRequestObject;
-import com.youyou.xiaofeibao.version2.request.toshop.ToShopRequestData;
-import com.youyou.xiaofeibao.version2.request.toshop.ToShopRequestMember;
-import com.youyou.xiaofeibao.version2.request.toshop.ToShopRequestObject;
-import com.youyou.xiaofeibao.version2.request.toshop.ToShopRequestShop;
+import com.youyou.xiaofeibao.version2.request.applyshop.ApplyShopRequestObject;
+import com.youyou.xiaofeibao.version2.request.applyshop.ApplyShopRequestParam;
+import com.youyou.xiaofeibao.version2.request.applyshop.ApplyShopRequsetMember;
+import com.youyou.xiaofeibao.version2.request.applyshop.ApplyshopRequestShop;
 import com.youyou.xiaofeibao.version2.response.BaseResponseObject;
+import com.youyou.xiaofeibao.version2.response.allcategory.AddressTypeList;
+import com.youyou.xiaofeibao.version2.response.allcategory.AllCategoryResponseObjecet;
+import com.youyou.xiaofeibao.version2.response.allcategory.BusinessList;
+import com.youyou.xiaofeibao.version2.response.allcategory.CategoryList;
+import com.youyou.xiaofeibao.version2.response.allcategory.ContactTypeList;
 import com.youyou.xiaofeibao.version2.response.querytemp.QueryTempResponseData;
 import com.youyou.xiaofeibao.version2.response.querytemp.QueryTempResponseObjecet;
 import com.youyou.xiaofeibao.version2.tool.Progress;
@@ -45,41 +53,60 @@ import java.io.File;
  */
 
 public class StoreManageActivity extends BaseTitleActivity implements View.OnClickListener {
-    @ViewInject(R.id.iv_doorimg)
+
+    //view start
+    @ViewInject(R.id.iv_doorimg)//店铺首页图
     ImageView iv_doorimg;
-    @ViewInject(R.id.et_shopname)
+    @ViewInject(R.id.et_realname)    //真实姓名
+            EditText et_realname;
+    @ViewInject(R.id.et_idcard)//身份证号码
+            EditText et_idcard;
+    @ViewInject(R.id.et_shopname)//店铺名称
     EditText et_shopname;
-    @ViewInject(R.id.tv_addr)
-    EditText tv_addr;
-    @ViewInject(R.id.et_phone)
-    EditText et_phone;
-    @ViewInject(R.id.tv_start_time)
+    @ViewInject(R.id.et_shopphone)//店铺电话
+            EditText et_shopphone;
+    @ViewInject(R.id.et_shopaddr)//店铺地址
+            EditText et_shopaddr;
+    @ViewInject(R.id.et_communityphone)//社区代理电话
+            EditText et_communityphone;
+    @ViewInject(R.id.et_email)//联系人邮箱
+            EditText et_email;
+    @ViewInject(R.id.et_servicephone)//客服电话
+            EditText et_servicephone;
+    @ViewInject(R.id.et_shortname)//店铺简称
+            EditText et_shortname;
+    @ViewInject(R.id.tv_location_addr)//定位地址
+            TextView tv_location_addr;
+    @ViewInject(R.id.tv_category_type)//经营类别
+            TextView tv_category_type;
+    @ViewInject(R.id.tv_contact_type)//联系人类型
+            TextView tv_contact_type;
+    @ViewInject(R.id.tv_address_type)//地址类型
+            TextView tv_address_type;
+    @ViewInject(R.id.tv_shopreturnrate)//返币比例
+            TextView tv_shopreturnrate;
+    @ViewInject(R.id.tv_introduce)//商家介绍
+            TextView tv_introduce;
+    @ViewInject(R.id.et_businessnum)//营业执照编号
+            TextView et_businessnum;
+    @ViewInject(R.id.tv_licens_type)//营业执照类型
+            TextView tv_licens_type;
+    @ViewInject(R.id.et_bankcradid)//银行卡号码
+            EditText et_bankcradid;
+    @ViewInject(R.id.et_bankcradname)//持卡人姓名
+            EditText et_bankcradname;
+    @ViewInject(R.id.tv_start_time)//开始经营时间
     TextView tv_start_time;
-    @ViewInject(R.id.tv_end_time)
+    @ViewInject(R.id.tv_end_time)//结束经营时间
     TextView tv_end_time;
-    @ViewInject(R.id.tv_introduce)
-    TextView tv_introduce;
-
-
-
-    @ViewInject(R.id.et_realname)
-    EditText et_realname;
-    @ViewInject(R.id.et_idcard)
-    EditText et_idcard;
-    @ViewInject(R.id.tv_yingye)
+    @ViewInject(R.id.tv_yingye)//营业执照照片
     TextView tv_yingye;
-    @ViewInject(R.id.tv_xuke)
+    @ViewInject(R.id.tv_xuke)//经营许可证
     TextView tv_xuke;
-    @ViewInject(R.id.tv_zheng)
+    @ViewInject(R.id.tv_zheng)//身份证正面
     TextView tv_zheng;
-    @ViewInject(R.id.tv_fan)
+    @ViewInject(R.id.tv_fan)//身份证反面
     TextView tv_fan;
-    @ViewInject(R.id.tv_cateid)
-    TextView tv_cateid;
-    @ViewInject(R.id.tv_per)
-    TextView tv_per;
-    @ViewInject(R.id.tv_juti_addr)
-    TextView tv_juti_addr;
 
     private AlertDialog dialog;
 
@@ -105,6 +132,19 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
     public static final String LONGITUDE = "LONGITUDE";
     public static final String LATITUDE = "LATITUDE";
 
+    private View Partent;
+    private LayoutInflater mInflater;
+
+    private RateSeletorUtils reteSelect;//返币比例选择窗
+    private SeletorUtils mAddressType;
+    private SeletorUtils mLincesType;
+    private SeletorUtils mContactType;
+    private SeletorUtils mCategoryType;
+
+    private String categoryid = "";
+    private String contactid = "";
+    private String addressid = "";
+    private String licensid = "";
 
     @Override
     protected int getTitleText() {
@@ -131,51 +171,123 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
         tv.setGravity(View.TEXT_ALIGNMENT_CENTER);
         tv.setTextColor(Color.WHITE);
         setRightTitleView(tv, layoutParams);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkData()) {
-                    submitData();
-                }
+        tv.setOnClickListener(v -> {
+            if (checkData()) {
+                submitData();
             }
         });
+
+        mInflater = LayoutInflater.from(mActivity);
+        Partent = mInflater.inflate(R.layout.v2_activity_merchant_particulars, null);
+
+        reteSelect = new RateSeletorUtils(Partent, mActivity, R.layout.pop_select_money) {
+
+            @Override
+            protected void setAdapterItem(String str) {
+                tv_shopreturnrate.setText(str);
+            }
+        };
+
+        mAddressType = new SeletorUtils(Partent, mInflater, mActivity, 0) {
+
+            @Override
+            public void setAdapterItem(Object bean) {
+                AddressTypeList data = ((AddressTypeList) bean);
+                tv_address_type.setText(data.getVal());
+                addressid = data.getAddressType();
+            }
+        };
+        mLincesType = new SeletorUtils(Partent, mInflater, mActivity, 1) {
+            @Override
+            public void setAdapterItem(Object bean) {
+                BusinessList data = ((BusinessList) bean);
+                tv_licens_type.setText(data.getLicenseName());
+                licensid = data.getLicenseId();
+            }
+        };
+        mContactType = new SeletorUtils(Partent, mInflater, mActivity, 2) {
+            @Override
+            public void setAdapterItem(Object bean) {
+                ContactTypeList data = ((ContactTypeList) bean);
+                tv_contact_type.setText(data.getTypeName());
+                contactid = data.getTypeId();
+            }
+        };
+        mCategoryType = new SeletorUtils(Partent, mInflater, mActivity, 3) {
+            @Override
+            public void setAdapterItem(Object bean) {
+                CategoryList data = ((CategoryList) bean);
+                categoryid = data.getCategoryId();
+                tv_category_type.setText(data.getName());
+
+            }
+        };
     }
 
     @Override
     protected void initData() {
         super.initData();
         getData();
+        getCategoryData();
+    }
+
+    //获取类别信息
+    private void getCategoryData() {
+
+        ResponseBuilder<BaseRequestParam, AllCategoryResponseObjecet> builder =
+                new ResponseBuilder<>(new BaseRequestParam(), Config.SUPPLY_PRE, AllCategoryResponseObjecet.class);
+        builder.setCallBack(new BaseNetCallBack<AllCategoryResponseObjecet>() {
+            @Override
+            public void onSuccess(AllCategoryResponseObjecet reponse) {
+                mAddressType.setData(reponse.getData().getAddressTypeList());
+                mLincesType.setData(reponse.getData().getBusinessList());
+                mContactType.setData(reponse.getData().getContactTypeList());
+                mCategoryType.setData(reponse.getData().getList());
+            }
+        }).send();
     }
 
     //提交数据
     private void submitData() {
         final Dialog dialog = Progress.createLoadingDialog(this, "");
         dialog.show();
-        ToShopRequestObject requstObject = new ToShopRequestObject();
-        final ToShopRequestData data = new ToShopRequestData();
-//        data.setType("2");
-        ToShopRequestMember member = new ToShopRequestMember();
+
+        final ApplyShopRequestObject requsetObjcet = new ApplyShopRequestObject();
+        ApplyShopRequestParam param = new ApplyShopRequestParam();
+        final ApplyShopRequsetMember member = new ApplyShopRequsetMember();
+        ApplyshopRequestShop shop = new ApplyshopRequestShop();
+
+        //姓名，身份证，邮箱
         member.setName(et_realname.getText().toString().trim());
         member.setIdcardno(et_idcard.getText().toString().trim());
-        data.setMember(member);
-        ToShopRequestShop shop = new ToShopRequestShop();
+        member.setEmail(et_email.getText().toString().trim());
 
-        shop.setAddr(tv_addr.getText().toString().trim());
+        //店名，电话，地址，社区电话代理，客服电话，
+        shop.setShopname(et_shopname.getText().toString().trim());
+        shop.setShopphone(et_shopphone.getText().toString().trim());
+        shop.setAddr(et_shopaddr.getText().toString().trim());
+        shop.setShopRefreePhone(et_communityphone.getText().toString().trim());
+        shop.setServicePhone(et_servicephone.getText().toString().trim());
+        //店铺简称，定位，营业范围，联系人类型,地址类型
+        shop.setAliasName(et_shortname.getText().toString().trim());
         shop.setLatitude(latitude);
         shop.setLongitude(longitude);
+        shop.setCategoryid(categoryid);
+        shop.setContactType(contactid);
+        shop.setAddressType(addressid);
+        //返币比例，商家介绍，营业执照编号，营业执照类型，银行卡号，银行卡持卡人姓名
+        shop.setShopreturnrate(tv_shopreturnrate.getText().toString().trim());
+        shop.setIntroduction(tv_introduce.getText().toString().trim());
+        shop.setBusinessLicense(et_businessnum.getText().toString().trim());
+        shop.setBusinessLicenseType(licensid);
+        shop.setCardNo(et_bankcradid.getText().toString().trim());
+        shop.setCardName(et_bankcradname.getText().toString().trim());
 
-//        shop.setAddr("合肥市滨湖新区临滨苑");
-//        shop.setLatitude(PreferencesConfig.v2_lat.get());
-//        shop.setLongitude(PreferencesConfig.v2_longt.get());
-
-        shop.setShopPhone(et_phone.getText().toString().trim());
-        shop.setShopname(et_shopname.getText().toString().trim());
-        shop.setCategoryid(tv_cateid.getText().toString().trim());
-
+        //开始时间，结束时间
         shop.setStartbusinesstime(tv_start_time.getText().toString().trim());
         shop.setEndbusinesstime(tv_end_time.getText().toString().trim());
-        shop.setIntroduction(introduction);
 
+        //店铺首页图，营业执照，经营许可证，身份证正面，身份证反面
         if(doorimg.startsWith("http:")){
             shop.setDoorimg("");
         }else{
@@ -202,11 +314,12 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
             shop.setIdcardnobackimg(idcardnobackimg);
         }
 
-        data.setMember(member);
-        data.setShop(shop);
-        requstObject.setParam(data);
+        param.setType("2");
+        param.setMember(member);
+        param.setShop(shop);
+        requsetObjcet.setParam(param);
 
-        ResponseBuilder<ToShopRequestObject, BaseResponseObject> builder = new ResponseBuilder<>(requstObject, Config.SUPPLYTOSHOP,BaseResponseObject.class);
+        ResponseBuilder<ApplyShopRequestObject, BaseResponseObject> builder = new ResponseBuilder<>(requsetObjcet, Config.SUPPYLSHOP, BaseResponseObject.class);
         builder.setCallBack(new BaseNetCallBack<BaseResponseObject>() {
             @Override
             public void onSuccess(BaseResponseObject baseResponseObject) {
@@ -224,11 +337,20 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
+                Toast.makeText(mActivity, responseObject.getMsg(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onNetFailure(String str) {
                 super.onNetFailure(str);
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onServerFailure(String str) {
+                super.onServerFailure(str);
                 if (dialog.isShowing()) {
                     dialog.dismiss();
                 }
@@ -247,7 +369,7 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
             Toast.makeText(mActivity, "请填写店铺名称", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(tv_addr.getText().toString().trim())) {
+        if (TextUtils.isEmpty(et_shopaddr.getText().toString().trim())) {
             Toast.makeText(mActivity, "请完善店铺地址", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -255,7 +377,7 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
             Toast.makeText(mActivity, "请完善店铺地址定位信息", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (TextUtils.isEmpty(et_phone.getText().toString().trim())) {
+        if (TextUtils.isEmpty(et_shopphone.getText().toString().trim())) {
             Toast.makeText(mActivity, "请填写店铺联系方式", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -271,7 +393,11 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
             Toast.makeText(mActivity, "请填写结束营业时间", Toast.LENGTH_SHORT).show();
             return false;
         }
-//        if()
+        if (TextUtils.isEmpty(et_email.getText().toString().trim())) {
+            Toast.makeText(mActivity, "请填写联系人邮箱", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
         return true;
     }
 
@@ -279,7 +405,7 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
     protected void setListener() {
         super.setListener();
         iv_doorimg.setOnClickListener(this);
-        tv_addr.setOnClickListener(this);
+        et_shopaddr.setOnClickListener(this);
         tv_yingye.setOnClickListener(this);
         tv_xuke.setOnClickListener(this);
         tv_zheng.setOnClickListener(this);
@@ -287,7 +413,14 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
         tv_start_time.setOnClickListener(this);
         tv_end_time.setOnClickListener(this);
         tv_introduce.setOnClickListener(this);
-        tv_juti_addr.setOnClickListener(this);
+        tv_location_addr.setOnClickListener(this);
+
+        tv_address_type.setOnClickListener(this);
+        tv_licens_type.setOnClickListener(this);
+        tv_category_type.setOnClickListener(this);
+        tv_contact_type.setOnClickListener(this);
+
+        tv_shopreturnrate.setOnClickListener(this);
 
     }
 
@@ -303,38 +436,54 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
     }
 
     private void saveData(QueryTempResponseData data) {
+
+        if (!"".equals(data.getDoorimg())) {
+            doorimg_file = data.getDoorimg();
+            doorimg = data.getDoorimg();
+            ImageUtils.display(iv_doorimg, doorimg_file);
+        }
+        et_realname.setText(data.getName());
+        et_idcard.setText(data.getIdcardno());
         et_shopname.setText(data.getShopname());
-        tv_addr.setText(data.getAddr());
-        et_phone.setText(data.getShopPhone());
-        tv_start_time.setText(data.getStartbusinesstime());
-        tv_end_time.setText(data.getEndbusinesstime());
-        tv_introduce.setText(data.getIntroduction());
+        et_shopphone.setText(data.getShopPhone());
+        et_shopaddr.setText(data.getAddr());
+        et_communityphone.setText(data.getInvitecode());
+        et_email.setText(data.getEmail());
+        et_servicephone.setText(data.getServicephone());
+        et_shortname.setText(data.getAliasname());
+
+        if (!latitude.equals("")) {
+            tv_location_addr.setText("定位成功");
+        } else {
+            tv_location_addr.setText("定位未成功");
+        }
+
+        tv_category_type.setText(data.getCategorynanme());
+        categoryid = data.getCategoryid();
+        tv_contact_type.setText(data.getContactname());
+        contactid = data.getContacttype();
+        tv_address_type.setText(data.getAddressname());
+        addressid = data.getAddresstype();
         String discount=data.getDiscount();
 
         try {
             Double dd=Double.parseDouble(discount);
             Double sub=1-dd;
-            tv_per.setText(sub*100+"%");
+            tv_shopreturnrate.setText(sub + "");
         }catch (Exception e){
         }
-        et_realname.setText(data.getName());
-        et_idcard.setText(data.getIdcardno());
-        tv_cateid.setText(data.getCategoryid());
+
+        tv_introduce.setText(data.getIntroduction());
+        et_businessnum.setText(data.getBusinesslicensename());
+        licensid = data.getBusinesslicensetype();
+        et_bankcradid.setText(data.getCardno());
+        et_bankcradname.setText(data.getCardname());
+
+        tv_start_time.setText(data.getStartbusinesstime());
+        tv_end_time.setText(data.getEndbusinesstime());
 
         longitude=data.getLongitude();
         latitude=data.getLatitude();
-
-        if(!latitude.equals("")){
-            tv_juti_addr.setText("定位成功");
-        }else{
-            tv_juti_addr.setText("定位未成功");
-        }
-
-        if(!"".equals(data.getDoorimg())){
-            doorimg_file=data.getDoorimg();
-            doorimg=data.getDoorimg();
-            ImageUtils.display(iv_doorimg,doorimg_file);
-        }
 
         if ("".equals(data.getBusinessimg())) {
             tv_yingye.setText("未上传");
@@ -388,26 +537,24 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
         dialog = new AlertDialog.Builder(context)
                 .setTitle("请选择时间:")
                 .setView(dateTimeLayout)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        dialog.dismiss();
-                        String hour;
-                        String min;
-                        String second;
-                        if (hourPicker.getValue() < 10) {
-                            hour = "0" + hourPicker.getValue();
-                        } else {
-                            hour = hourPicker.getValue() + "";
-                        }
-                        if (minutePicker.getValue() < 10) {
-                            min = "0" + minutePicker.getValue();
-                        } else {
-                            min = minutePicker.getValue() + "";
-                        }
-
-                        tv_time.setText(" " + hour + ":" + min + ":00");
-
+                .setPositiveButton("确定", (dialog1, whichButton) -> {
+                    dialog1.dismiss();
+                    String hour;
+                    String min;
+                    String second;
+                    if (hourPicker.getValue() < 10) {
+                        hour = "0" + hourPicker.getValue();
+                    } else {
+                        hour = hourPicker.getValue() + "";
                     }
+                    if (minutePicker.getValue() < 10) {
+                        min = "0" + minutePicker.getValue();
+                    } else {
+                        min = minutePicker.getValue() + "";
+                    }
+
+                    tv_time.setText(" " + hour + ":" + min + ":00");
+
                 }).setCancelable(false).show();
     }
 
@@ -445,7 +592,7 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
                 intent15.putExtra("path", idcardnobackimg_file);
                 startActivityForResult(intent15, 15);
                 break;
-            case R.id.tv_juti_addr:
+            case R.id.tv_location_addr:
                 startActivityForResult(new Intent(mActivity, MapViewActivity.class),3);
                 break;
             case R.id.tv_start_time:
@@ -457,6 +604,21 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
             case R.id.tv_introduce:
                 Intent intent = new Intent(mActivity, EditShopInfoActivity.class);
                 startActivityForResult(intent, 2);
+                break;
+            case R.id.tv_address_type:
+                mAddressType.showPopUpwindow();
+                break;
+            case R.id.tv_licens_type:
+                mLincesType.showPopUpwindow();
+                break;
+            case R.id.tv_category_type:
+                mCategoryType.showPopUpwindow();
+                break;
+            case R.id.tv_contact_type:
+                mContactType.showPopUpwindow();
+                break;
+            case R.id.tv_shopreturnrate://返币比例弹出选择
+                reteSelect.showPopUpwindow();
                 break;
         }
     }
@@ -504,9 +666,9 @@ public class StoreManageActivity extends BaseTitleActivity implements View.OnCli
 //            tv_addr.setText(data.getStringExtra(ADDRESS));
 
             if(!latitude.equals("")){
-                tv_juti_addr.setText("定位成功");
+                tv_location_addr.setText("定位成功");
             }else{
-                tv_juti_addr.setText("定位未成功");
+                tv_location_addr.setText("定位未成功");
             }
         }
     }

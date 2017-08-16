@@ -59,6 +59,6 @@ public abstract class SeletorUtils {
         adapter.setList(categorys);
     }
 
-    abstract void setAdapterItem(Object bean);
+    public abstract void setAdapterItem(Object bean);
 
 }

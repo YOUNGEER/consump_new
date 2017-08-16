@@ -90,6 +90,7 @@
                     />
             </LinearLayout>
 
+
             <LinearLayout
 
                 android:layout_width="match_parent"
@@ -121,10 +122,52 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/white">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/x12"
+                    android:layout_marginRight="@dimen/x12"
+                    android:background="#eee"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/x5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/x12"
+                    android:text="@string/home_money"
+                    android:textColor="#5B5B5B"
+                    android:textSize="@dimen/textsise_ssmall_"/>
+
+                <TextView
+                    android:id="@+id/tv_postmoney"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawablePadding="@dimen/x8"
+                    android:drawableRight="@mipmap/arrow"
+                    android:gravity="center_vertical|right"
+                    android:padding="@dimen/x12"
+                    android:textColor="#8B8B8B"
+                    android:textSize="@dimen/textsise_ssmall_"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x1"
                 android:background="@color/white"
+                android:visibility="gone"
 
                 >
 

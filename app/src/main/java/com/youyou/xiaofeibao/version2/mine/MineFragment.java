@@ -21,6 +21,7 @@ import com.youyou.xiaofeibao.util.CircularImage;
 import com.youyou.xiaofeibao.version2.Config;
 import com.youyou.xiaofeibao.version2.home.count.MyCountActivity;
 import com.youyou.xiaofeibao.version2.home.history.HistoryActivity;
+import com.youyou.xiaofeibao.version2.home.postal.Postal2Activity;
 import com.youyou.xiaofeibao.version2.login.LoginOrRegisterActivity;
 import com.youyou.xiaofeibao.version2.mine.countinfo.CountInfoActivity;
 import com.youyou.xiaofeibao.version2.mine.favorite.FavoriteActivity;
@@ -62,6 +63,8 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
 
     @ViewInject(R.id.tv_money)
     TextView tv_money;
+    @ViewInject(R.id.tv_postmoney)
+    TextView tv_postmoney;
 
     private String money;
     private int type=1;
@@ -106,6 +109,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
         tv_money.setOnClickListener(this);
         tv_register.setOnClickListener(this);
         tv_tuiguang.setOnClickListener(this);
+        tv_postmoney.setOnClickListener(this);
 
         ll_pl.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
         ll_pl.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ScrollView>() {
@@ -252,7 +256,12 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                 } else {
                     startActivity(new Intent(getActivity(), MyTgActivity.class));
                 }
-
+                break;
+            case R.id.tv_postmoney://推广可提现金额
+                Intent intent = new Intent(getActivity(), Postal2Activity.class);
+                intent.setAction(tv_postmoney.getText().toString().trim());
+                intent.putExtra("type", "2");
+                startActivity(intent);
                 break;
         }
     }
@@ -272,6 +281,7 @@ public class MineFragment extends BaseFragment implements View.OnClickListener {
                     ll_pl.onRefreshComplete();
                 }
                 money=Object.getData().getBalance();
+                tv_postmoney.setText(Object.getData().getSettlementing_money() + "");
                 if(PreferencesConfig.v2_see.get()){
                     tv_money.setText(money);
                 }else {

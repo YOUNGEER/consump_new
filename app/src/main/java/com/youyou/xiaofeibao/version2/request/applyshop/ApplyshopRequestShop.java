@@ -44,6 +44,15 @@ public class ApplyshopRequestShop {
     private String businessLicenseType;
     private String cardNo;
     private String cardName;
+    /**
+     * endbusinesstime : 结束时间
+     * startbusinesstime : 开始时间
+     * introduction : 商家介绍
+     */
+
+    private String endbusinesstime;
+    private String startbusinesstime;
+    private String introduction;
 
     public String getShopname() {
         return shopname;
@@ -221,5 +230,29 @@ public class ApplyshopRequestShop {
         this.cardName = cardName;
     }
 
+
+    public String getEndbusinesstime() {
+        return endbusinesstime;
+    }
+
+    public void setEndbusinesstime(String endbusinesstime) {
+        this.endbusinesstime = endbusinesstime;
+    }
+
+    public String getStartbusinesstime() {
+        return startbusinesstime;
+    }
+
+    public void setStartbusinesstime(String startbusinesstime) {
+        this.startbusinesstime = startbusinesstime;
+    }
+
+    public String getIntroduction() {
+        return introduction;
+    }
+
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
 
 }

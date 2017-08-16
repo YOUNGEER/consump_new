@@ -56,12 +56,7 @@ public class PostalActivity extends BaseTitleActivity {
         tv.setGravity(View.TEXT_ALIGNMENT_CENTER);
         tv.setTextColor(Color.WHITE);
         setRightTitleView(tv, layoutParams);
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(mActivity,PostalHistoryActivity.class));
-            }
-        });
+        tv.setOnClickListener(v -> startActivity(new Intent(mActivity, PostalHistoryActivity.class)));
 
         tv_yingshou_money.setText(getIntent().getStringExtra("yingshou"));
         tv_tongbaobi_money.setText(getIntent().getStringExtra("tongbaobi"));
@@ -76,26 +71,20 @@ public class PostalActivity extends BaseTitleActivity {
         tv_tongbaobi.setText("立即提现 >");
 
         //营收
-        tv_yingshou.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(mActivity,Postal2Activity.class);
-                intent.setAction(tv_yingshou_money.getText().toString().trim());
-                intent.putExtra("from",getIntent().getIntExtra("from",0));
-                intent.putExtra("type", "1");
-                startActivityForResult(intent,1);
-            }
+        tv_yingshou.setOnClickListener(v -> {
+            Intent intent = new Intent(mActivity, Postal2Activity.class);
+            intent.setAction(tv_yingshou_money.getText().toString().trim());
+            intent.putExtra("from", getIntent().getIntExtra("from", 0));
+            intent.putExtra("type", "1");
+            startActivityForResult(intent, 1);
         });
 
-        //通宝币
-        tv_tongbaobi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(mActivity,Postal2Activity.class);
-                intent.setAction(tv_tongbaobi_money.getText().toString().trim());
-                intent.putExtra("type", "2");
-                startActivityForResult(intent,1);
-            }
+        //智惠币
+        tv_tongbaobi.setOnClickListener(v -> {
+            Intent intent = new Intent(mActivity, Postal2Activity.class);
+            intent.setAction(tv_tongbaobi_money.getText().toString().trim());
+            intent.putExtra("type", "2");
+            startActivityForResult(intent, 1);
         });
 
 

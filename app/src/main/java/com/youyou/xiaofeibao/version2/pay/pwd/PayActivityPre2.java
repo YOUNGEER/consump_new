@@ -65,13 +65,13 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
     @ViewInject(R.id.ll_isTong)
     LinearLayout ll_isTong;
 
-    private Double d_total_tong;//总的通宝币数量
-    private Double d_pay_tong;//需要支付的通宝币数量
-    private Double d_subNum_tong = 0.00;//支付的金额和通宝币的差值
+    private Double d_total_tong;//总的智惠币数量
+    private Double d_pay_tong;//需要支付的智惠币数量
+    private Double d_subNum_tong = 0.00;//支付的金额和智惠币的差值
     private Double d_real_pay;//实际需要付的金钱
     private boolean isTrans = false;
     private String shopReturnRate="0.0";
-    private boolean isError=true;//通宝币密码是否正确
+    private boolean isError = true;//智惠币密码是否正确
 
     private String title = "支付订单";
     private String ordertype = "0";
@@ -111,7 +111,7 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
             setTitle(getIntent().getStringExtra("name"));
         }
 
-        getTongNum();   //获取通宝币数量，为0时gone，并且判断是否设置了支付密码
+        getTongNum();   //获取智惠币数量，为0时gone，并且判断是否设置了支付密码
 
         mParent=(ScrollView) getLayoutInflater().inflate(R.layout.v2_activity_pay2,null);
         LinearLayout linearLayout= (LinearLayout) getLayoutInflater().inflate(R.layout.pop_pwd,null);
@@ -161,7 +161,7 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
             public void onClick(View v) {
                 if (tv_sure.isActivated()) {//可点击状态
                     if (isTrans) {//需要第三方支付
-                        if (d_pay_tong > 0) {//通宝币和第三方
+                        if (d_pay_tong > 0) {//智惠币和第三方
                             showPop();
                         } else {//只需要第三方支付
                             Intent intent = new Intent(mActivity, PayActivity.class);
@@ -236,7 +236,7 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
     }
 
     /**
-     * 检查通宝币密码
+     * 检查智惠币密码
      * @param pwd
      * @param pwdview
      */
@@ -370,10 +370,10 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
             total_price = 0.00;
         }
 
-        if (cb_isTong.isChecked()) {//计算通宝币之间的差
-            d_subNum_tong = MathUtil.subtractDouble(total_price, d_total_tong);//计算输入的金额和通宝币之间的差值
+        if (cb_isTong.isChecked()) {//计算智惠币之间的差
+            d_subNum_tong = MathUtil.subtractDouble(total_price, d_total_tong);//计算输入的金额和智惠币之间的差值
             tv_pay_tong.setTextColor(Color.BLACK);
-            if (d_subNum_tong > 0) {//输入金额大于通宝币数量,需要跳转第三方支付
+            if (d_subNum_tong > 0) {//输入金额大于智惠币数量,需要跳转第三方支付
 
                 d_pay_tong = d_total_tong;
                 d_real_pay=d_subNum_tong;
@@ -386,7 +386,7 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
                 tv_back_tong.setText(f4);
 
 
-            } else {                    //通宝币支付，不需要第三方支付
+            } else {                    //智惠币支付，不需要第三方支付
                 d_pay_tong = total_price;
                 d_real_pay=0.00;
                 isTrans = false;
@@ -397,7 +397,7 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
                 tv_sure.setText("智惠币" + d_pay_tong + " 确认支付");
             }
 
-        } else {//不要带入通宝币进行计算
+        } else {//不要带入智惠币进行计算
 
             d_pay_tong=0.0;
             d_real_pay = total_price;
@@ -421,7 +421,7 @@ public class PayActivityPre2 extends KeyBoardAutoDownActivity {
     }
 
     /**
-     * 获取通宝币数量
+     * 获取智惠币数量
      */
     private void getTongNum() {
         ResponseBuilder<EmptyRequestObject, TongResponseObject> builder = new ResponseBuilder<>(new EmptyRequestObject(), Config.TONGNUM,TongResponseObject.class);

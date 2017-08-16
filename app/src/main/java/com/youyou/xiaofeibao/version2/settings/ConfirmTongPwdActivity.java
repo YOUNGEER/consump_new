@@ -83,7 +83,7 @@ public class ConfirmTongPwdActivity extends BaseTitleActivity {
     }
 
     /**
-     * 是否设置过通宝币密码，ture为是第一次设置
+     * 是否设置过智惠币密码，ture为是第一次设置
      */
     private void getTongNum() {
         ResponseBuilder<EmptyRequestObject, TongResponseObject> builder = new ResponseBuilder<>(new EmptyRequestObject(), Config.TONGNUM,TongResponseObject.class);

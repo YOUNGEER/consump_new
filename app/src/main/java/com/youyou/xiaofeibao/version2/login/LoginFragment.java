@@ -1,5 +1,6 @@
 package com.youyou.xiaofeibao.version2.login;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import com.youyou.xiaofeibao.framework.activity.BaseFragment;
 import com.youyou.xiaofeibao.framework.net.BaseNetCallBack;
 import com.youyou.xiaofeibao.framework.net.ResponseBuilder;
 import com.youyou.xiaofeibao.framework.preferences.PreferencesConfig;
+import com.youyou.xiaofeibao.util.ProgressUtils;
 import com.youyou.xiaofeibao.version2.Config;
 import com.youyou.xiaofeibao.version2.request.login.LoginRequestObject;
 import com.youyou.xiaofeibao.version2.request.login.LoginRequestParam;
@@ -45,6 +47,8 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
     TextView tv_weixin;
     @ViewInject(R.id.tv_zfb)
     TextView tv_zfb;
+
+    private Dialog mProgressUtils;
 
 
 
@@ -90,6 +94,7 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
 
         switch (code) {
             case R.id.tv_login:
+
                 loginCount();
                 break;
             case R.id.tv_weixin:
@@ -105,6 +110,12 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
     private void loginCount() {
         String str = et_phone.getText().toString().trim();
         if (NumUtils.checkPhoneNum(str)) {
+            if (null == mProgressUtils) {
+                mProgressUtils = ProgressUtils.createLoadingDialog(getActivity());
+                mProgressUtils.show();
+            } else {
+                mProgressUtils.show();
+            }
             LoginRequestObject requestObject = new LoginRequestObject();
             LoginRequestParam requestParam = new LoginRequestParam();
             requestParam.setPhone(str);
@@ -114,6 +125,9 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
             builder.setCallBack(new BaseNetCallBack<LoginResponseObject>() {
                 @Override
                 public void onSuccess(LoginResponseObject indexPageResponseObject) {
+                    if (mProgressUtils.isShowing()) {
+                        mProgressUtils.dismiss();
+                    }
                     savaTokenInfo(indexPageResponseObject.getData());
                     showShortText("登录成功");
                     getActivity().finish();
@@ -122,6 +136,25 @@ public class LoginFragment extends BaseFragment implements View.OnClickListener 
                 @Override
                 public void onFailure(LoginResponseObject Object) {
                     showShortText(Object.getMsg());
+                    if (mProgressUtils.isShowing()) {
+                        mProgressUtils.dismiss();
+                    }
+                }
+
+                @Override
+                public void onNetFailure(String str) {
+                    super.onNetFailure(str);
+                    if (mProgressUtils.isShowing()) {
+                        mProgressUtils.dismiss();
+                    }
+                }
+
+                @Override
+                public void onServerFailure(String str) {
+                    super.onServerFailure(str);
+                    if (mProgressUtils.isShowing()) {
+                        mProgressUtils.dismiss();
+                    }
                 }
             }).send();
         }

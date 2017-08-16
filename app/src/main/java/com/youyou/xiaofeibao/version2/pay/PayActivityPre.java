@@ -52,7 +52,7 @@ public class PayActivityPre extends KeyBoardAutoDownActivity {
     @ViewInject(R.id.cb_isTong)
     CheckBox cb_isTong;
     @ViewInject(R.id.tv_tong_need)
-    TextView tv_tong_need;//实时显示通宝币的数量
+    TextView tv_tong_need;//实时显示智惠币的数量
     @ViewInject(R.id.tv_tong)
     TextView tv_tong;
     @ViewInject(R.id.tv_need_pay)
@@ -74,7 +74,7 @@ public class PayActivityPre extends KeyBoardAutoDownActivity {
     private String ordertype = "0";
     private String tomemid;
     private Double price;//金额
-    private String price_tbb = "0";//通宝币
+    private String price_tbb = "0";//智惠币
     private String paytype = "3";//1:微信支付，2：支付宝支付，3：智惠币支付
     private String zfpass = "";
 
